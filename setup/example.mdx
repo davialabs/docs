@@ -3,6 +3,18 @@ description: "This guide walks you through setting up an advanced recruiting ass
 title: "Example — HR Agent"
 ---
 
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/S2Z0ZXW_BTA?si=hRIMIc0U2oAK8ZTE"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+
 ## Install required packages
 
 Before creating your agent, make sure you have these installed:
@@ -189,7 +201,6 @@ graph.add_node("tools", tool_node)
 graph.add_edge(START, "chat")
 graph.add_conditional_edges("chat", should_continue, ["tools", END])
 graph.add_edge("tools", "chat")
-
 ```
 
 ## Configuration (langgraph.json)
@@ -204,6 +215,7 @@ Create a langgraph.json file in your project root with the following content:
   }
 }
 ```
+
 This configuration ensures Davia can correctly load and run your agent.
 
 ## Running Your Agent in Davia
@@ -214,4 +226,4 @@ Once your files are in place and correctly set up, run the following command:
 davia dev
 ```
 
-Davia will open your project on sandbox.davia.ai/?entrypoint=http://127.0.0.1:2025, where you can design your frontend and interact with your recruiting agent.
+Davia will open your project on , where you can design your frontend and interact with your recruiting agent.
