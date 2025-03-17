@@ -1,4 +1,80 @@
 ---
-title: "State Update"
-description: "This "
+title: "Customizing Your AI Frontend with Davia"
+description: "Learn how Davia helps you visualize and interact with your LangGraph state to create a user-friendly AI frontend."
 ---
+
+# Customizing Your AI Frontend with Davia
+
+Davia allows you to **turn your LangGraph backend into a fully interactive application**.\
+If you already have a **LangGraph agent**, Davia provides the tools to **display its state**, make it user-friendly, and customize the frontend—without extra coding.
+
+This guide explains:
+
+1. **How LangGraph state works**
+2. **How Davia helps visualize it**
+3. **How to customize your frontend**
+
+## 1️⃣ **What is LangGraph State?**
+
+In LangGraph, the **state** is the structured data that evolves as the AI agent processes information. It acts as:\
+✔️ **Memory** – Retains conversation history and key variables.\
+✔️ **Live Data Storage** – Updates dynamically as the AI interacts with users.\
+✔️ **Graph Execution Context** – Connects different operations (nodes, tools) in a structured flow.
+
+Every AI interaction **modifies the state**, storing both inputs and outputs at each step.
+
+## 2️⃣ **How Davia Helps You Use This State**
+
+LangGraph provides the logic, but it **does not include a frontend**. Davia bridges this gap by:
+
+✔️ **Displaying the state** in an intuitive interface.\
+✔️ **Providing UI components** to interact with AI-generated data.\
+✔️ **Allowing easy customization** to control what the user sees.
+
+Instead of coding a frontend manually, **Davia connects directly to your backend and lets you design your UI in minutes**.
+
+## 3️⃣ **Customizing Your Frontend**
+
+Since your LangGraph backend is already set up, you can **immediately start customizing** how the state is displayed.
+
+### **Step 1: Start Davia**
+
+Run:
+
+```bash
+davia dev
+```
+
+This launches Davia and opens a pre-existing chat interface connected to your LangGraph backend.
+
+### **Step 2: Customize Your Frontend**
+
+Click **"Customize"** in the chat interface.
+
+- If you don’t have an account, **sign up** when prompted.
+- Once logged in, you’ll be redirected to the **Davia Page Builder** to configure your UI.
+
+### **Step 3: Choose UI Components**
+
+Davia provides a **component library** tailored to AI-powered applications.
+You can:
+
+- Select **tables, input fields, to visualize your state**.
+- Davia links components to **specific values in your LangGraph state**.
+
+![images/component_builder.png](/images/component_builder.png)
+
+### Step 4: View State Updates in the Chat
+
+Once you've customized your frontend, return to the chat interface.
+
+- **Your LangGraph state updates are reflected in real time.**
+- Every interaction modifies the state, and you can see how it evolves directly in the chat.
+
+![images/state_update.png](/images/state_update.png)
+
+## 🎯 **Key Takeaways**
+
+✅ **LangGraph state** holds and updates AI-driven data.\
+✅ **Davia provides an interface** to display and interact with this state.\
+✅ **You can customize your UI** using the **Davia Page Builder**—no coding required.

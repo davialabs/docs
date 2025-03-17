@@ -16,7 +16,7 @@
       },
       {
         "group": "Setup",
-        "pages": ["setup/prepare-your-agent", "setup/example"]
+        "pages": ["setup/prepare-your-agent","setup/state-update" ,"setup/example"]
       }
     ],
     "global": {
