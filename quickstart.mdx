@@ -36,8 +36,9 @@ Replace `your-openai-api-key` with your actual OpenAI API key.
 ```python
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, START, MessagesState, StateGraph
+from dotenv import load_dotenv
 
-
+load_dotenv()
 # 1. Define the state (stores the conversation history)
 class ChatState(MessagesState):
     pass
