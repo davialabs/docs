@@ -7,15 +7,7 @@ title: "Example — HR Agent "
 
 To see the HR Agent in action, watch this demo:
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/ZsooGrGWDOs?si=WrU1cx5xa8bokR--"
-  title="HR AI Agent with Langgraph and Davia"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allow="fullscreen;"
-/>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/ZsooGrGWDOs?si=WrU1cx5xa8bokR--" title="HR AI Agent with Langgraph and Davia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" />
 
 ## Install required packages
 
@@ -35,7 +27,7 @@ agent.py             # Contains your agent logic
 langgraph.json       # Configuration file for your agent
 ```
 
-## Required environment variables
+## Required environment variables (`.env`)
 
 Your `.env` file must contain:
 
@@ -174,11 +166,14 @@ def chat(state: HRRecruiter):
                 content=f"""You are an efficient recruiter assistant.
 
 Your task is to build a list of people to interview. To achieve this, you will:
-• Use the internet_search tool multiple times with different queries, refining them iteratively to find the most relevant names. Do not use the same query twice.
+• Use the internet_search tool multiple times with different queries, 
+refining them iteratively to find the most relevant names. Do not use the same query twice.
 • Identify multiple relevant individuals based on the user’s criteria. 
-The final goal is people, not companies. While you can perform broader searches if needed, ensure that the final result consists of individual people. 
+The final goal is people, not companies. 
+While you can perform broader searches if needed, ensure that the final result consists of individual people. 
 • The internet searches can be detailed if necessary.
-• For each identified person, call get_person_info separately to update the interview list, using their name and the relevant topic.
+• For each identified person, call get_person_info separately to 
+update the interview list, using their name and the relevant topic.
 • For each user query, do not retrieve more than 10 people.
 
 Current table state:
@@ -206,7 +201,7 @@ graph.add_conditional_edges("chat", should_continue, ["tools", END])
 graph.add_edge("tools", "chat")
 ```
 
-## Configuration (langgraph.json)
+## Configuration (`langgraph.json`)
 
 Create a langgraph.json file in your project root with the following content:
 
