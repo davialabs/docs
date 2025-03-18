@@ -10,7 +10,7 @@ To see the HR Agent in action, watch this demo:
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/S2Z0ZXW_BTA?si=hRIMIc0U2oAK8ZTE"
+  src="https://www.youtube.com/embed/ZsooGrGWDOs?si=WrU1cx5xa8bokR--"
   title="HR AI Agent with Langgraph and Davia"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -175,7 +175,8 @@ def chat(state: HRRecruiter):
 
 Your task is to build a list of people to interview. To achieve this, you will:
 • Use the internet_search tool multiple times with different queries, refining them iteratively to find the most relevant names. Do not use the same query twice.
-• Identify multiple relevant individuals based on the user’s criteria. The final goal is people, not companies. While you can perform broader searches if needed, ensure that the final result consists of individual people. 
+• Identify multiple relevant individuals based on the user’s criteria. 
+The final goal is people, not companies. While you can perform broader searches if needed, ensure that the final result consists of individual people. 
 • The internet searches can be detailed if necessary.
 • For each identified person, call get_person_info separately to update the interview list, using their name and the relevant topic.
 • For each user query, do not retrieve more than 10 people.
