@@ -1,0 +1,111 @@
+---
+title: "Defining Tasks"
+description: "Use @davia_app.task to expose Python functions to the frontend."
+---
+
+In Davia, a **task** is a Python function that becomes available from the frontend.
+
+You define the logic in Python — and Davia takes care of generating the UI: input fields, buttons, and result areas.
+
+This is the main way to let users interact with your backend: they can trigger actions, pass data, and get responses, without you writing a single line of frontend code.
+
+---
+
+## 1. Create your first task
+
+To create a task, use the ```@davia_app.task``` decorator. Davia will generate a UI based on the function’s inputs and output type.
+
+```python
+from davia import Davia, run_server
+
+davia_app = Davia()
+
+@davia_app.task
+def convert_to_uppercase(text: str) -> str:
+    """
+    Converts a string to uppercase.
+    """
+    return text.upper()
+
+if __name__ == "__main__":
+    run_server(davia_app)
+```
+
+When you run this file, Davia will open the editor at:
+
+🔗 [https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025](https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025)
+
+You’ll see:
+- A single-line input for `text`
+- A button to run the task
+- A display of the result in uppercase
+
+---
+
+## 2. Use input/output types
+
+Davia uses function signatures to build the UI automatically.
+
+For example:
+
+```python
+@davia_app.task
+def compute_discount(price: float, percentage: float) -> float:
+    """
+    Applies a discount percentage to a price.
+    """
+    return price * (1 - percentage / 100)
+``` 
+
+This creates:
+- Two numeric inputs
+- A button to run the calculation
+- The discounted price as the output
+
+Supported input types include:
+- ```str```, ```int```, ```float``, ```bool```
+- Lists and dictionaries
+- Optional values using typing (e.g. ```Optional[str]```)
+
+---
+
+## 3. Add a useful docstring
+
+The docstring appears in the UI to explain what each task does.
+
+It helps your users understand the purpose and behavior of the function.
+
+✅ Use clear, action-oriented descriptions:  
+```Returns the discounted price based on the input percentage.```
+
+🚫 Avoid vague or technical notes:  
+```Test helper function for internal calculations.```
+
+---
+
+## 4. Example: checkbox + output
+
+```python
+@davia_app.task
+def toggle_message(show_details: bool) -> str:
+    """
+    Returns a detailed message only if 'show_details' is True.
+    """
+    if show_details:
+        return "Detailed explanation: all systems are operational."
+    return "OK."
+``` 
+
+Davia can generate:
+- A checkbox labeled `show_details`
+- A response message area that updates based on the input
+
+---
+
+## Best practices
+
+- ✅ Always define input and output types
+- ✅ Use descriptive names for functions and parameters
+- ✅ Write helpful docstrings
+- ❌ Don’t use unsupported dynamic arguments (like ```*args```)
+- ❌ Avoid relying on global state or side effects

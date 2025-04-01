@@ -1,0 +1,88 @@
+---
+description: "This guide walks you through setting up an advanced recruiting assistant that Davia can connect to. This agent searches for potential candidates, retrieves their information, and refines results iteratively."
+title: "Example — HR Agent "
+---
+
+Davia supports **LangGraph-style AI agents** through the `@davia_app.graph` decorator.
+
+A **graph** represents an AI workflow — a sequence of steps connected through logic and memory (called **state**). It's useful for building advanced agents like chatbots, assistants, or tool-using flows.
+
+Davia connects directly to the graph you define and builds a UI so users can interact with it — with real-time inputs, state handling, and streaming output.
+
+---
+
+## 1. What is a graph?
+
+In Davia, a graph is:
+
+- A **LangGraph** object (`StateGraph`) with defined nodes and transitions
+- Exposed to Davia via `@davia_app.graph`
+- Fully interactive in the frontend — users can provide input, trigger execution, and see the result live
+
+If your agent is conversational, **Davia can generate a chat-style interface** to let users interact with it naturally.
+
+---
+
+## 2. Full example: A minimal graph
+
+Here's a full example of a simple one-turn chatbot using LangGraph and Davia.
+
+```python
+from davia import Davia, run_server
+from langgraph.graph import StateGraph, START, END, MessagesState
+
+# Define a simple node
+def start(state: MessagesState) -> MessagesState:
+    return {
+        "messages": [
+            {"role": "ai", "content": "Hello, how can I help you today?"}
+        ]
+    }
+
+# Create and expose the graph
+davia_app = Davia()
+
+@davia_app.graph
+def hello_graph():
+    """
+    A minimal LangGraph agent that returns a greeting.
+    """
+    graph = StateGraph(ChatState)
+    graph.add_node("start", start)
+    graph.add_edge(START, "start")
+    graph.add_edge("start", END)
+    return graph
+
+#  Launch the server
+if __name__ == "__main__":
+    run_server(davia_app)
+```
+
+When you run this file, Davia opens the editor at:
+
+🔗 https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025
+
+You'll see a simple interface where:
+
+- Users can submit a message
+- The graph runs and returns a greeting
+- Responses are streamed back to the UI in real time
+
+---
+
+## 3. How Davia integrates with LangGraph
+
+When you expose a LangGraph agent:
+
+- Davia reads the **state class** (e.g. `MessagesState`) and builds an entire UI based on it,
+- It connects to the graph's lifecycle: `START → node(s) → END`
+- It can **stream the output** live as each node in the graph runs
+- The entire UI is automatically adapted to your graph’s logic
+
+---
+
+## 4. Best practices
+
+- ✅ Always return a Graph from your decorated function
+- ✅ Add a helpful docstring to describe your agent
+- ❌ Don’t return the graph directly at the top level — it must be wrapped in a function

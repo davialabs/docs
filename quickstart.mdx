@@ -1,88 +1,51 @@
 ---
 title: "Quickstart"
-description: "This is a minimal example of a working agent that Davia can connect to. It’s a simple chatbot — the user sends messages, the agent responds."
+description: "Get started with Davia in minutes by following these simple steps."
 ---
 
-## Install required packages
+## 1. Install Davia
 
-Before creating your agent, make sure you have these installed:
-
-```bash
-pip install davia langchain-openai
-```
-
-## Folder and file structure
-
-Organize your files like this:
+First, install Davia using pip:
 
 ```bash
-agent.py             # Contains your agent logic
-.env                 # Contains your environment variables
-langgraph.json       # Configuration file for your agent
+pip install davia
 ```
 
-## Required environment variables
+## 2. Create Your First App
 
-Your `.env` file must contain:
-
-```bash
-OPENAI_API_KEY=insert-your-openai-api-key
-```
-
-Replace `your-openai-api-key` with your actual OpenAI API key.
-
-## Example agent (`agent.py`)
+Create a new Python file, for example welcome.py, and add the following code:
 
 ```python
-from langchain_openai import ChatOpenAI
-from langgraph.graph import END, START, MessagesState, StateGraph
-from dotenv import load_dotenv
+from davia import Davia, run_server
 
-load_dotenv()
-# 1. Define the state (stores the conversation history)
-class ChatState(MessagesState):
-    pass
+davia_app = Davia()
 
-# 2. Define the model (GPT-4o using the API key from .env)
-model = ChatOpenAI(model_name="gpt-4o")
+@davia_app.task
+def welcome_message() -> str:
+    return "Welcome to Davia!"
 
-# 3. Define the agent logic (just calls the model with messages)
-def run_agent(state: ChatState):
-    messages = state["messages"]
-    response = model.invoke(messages)
-    return {"messages": response}
-
-# 4. Build the StateGraph
-graph = StateGraph(ChatState)
-
-graph.add_node("agent", run_agent)
-graph.add_edge(START, "agent")
-graph.add_edge("agent", END)
+if __name__ == "__main__":
+    run_server(davia_app)
 ```
 
-## Configuration (`langgraph.json`)
+## 3. Run Your App
 
-Create a langgraph.json file in your project root with the following content:
-
-```json
-{
-  "dependencies": ["."],
-  "graphs": {
-    "chat": "./agent.py:graph"
-  }
-}
-```
-
-## Run Davia
-
-Once your files are in place and correctly set up, run on your terminal:
+Run your Python file:
 
 ```bash
-davia dev
+python welcome.py
 ```
 
-Davia will open your project on [sandbox.davia.ai/?entrypoint=http://127.0.0.1:2025](https://sandbox.davia.ai/?entrypoint=http://127.0.0.1:2025), and you’ll be able to design your frontend for this chat agent.
+This will start a local server and automatically open your browser to the Davia dashboard at:
 
-![images/basic.png](/images/basic.png)
+https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025
 
-✅ That’s it — your agent is now fully connected to Davia, and **your frontend is ready to use**.
+## 4. Design Your Interface
+
+Now you can use the visual editor to design your interface with a simple prompt:
+
+```markdown
+Clean dashboard with welcome button that displays blue message when clicked
+```
+
+That's it! Davia will generate your frontend instantly.

@@ -16,7 +16,7 @@
       },
       {
         "group": "Setup",
-        "pages": ["setup/prepare-your-agent","setup/state-update" ,"setup/example"]
+        "pages": ["setup/how-it-works","setup/defining-tasks" ,"setup/defining-graphs"]
       }
     ],
     "global": {
