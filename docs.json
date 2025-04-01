@@ -53,7 +53,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://sandbox.davia.ai/"
+      "href": "https://dev.davia.ai/"
     }
   },
   "footer": {
