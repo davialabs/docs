@@ -5,16 +5,16 @@ description: "Understand the workflow of building apps with Davia — from Pytho
 
 Davia connects your Python backend to a custom frontend — without requiring any frontend code. You write logic in Python, launch the server, and describe the UI you need in plain language. Davia takes care of the rest.
 
-
-Quick demo : 
+Quick demo :
 
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/4KzFe50RQkQ"
+  src="https://www.youtube.com/embed/SNGyBlXSHKc?si=ZsZvMfowirnhMow_"
   title="YouTube video player"
   frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
   allowfullscreen
 ></iframe>
 
@@ -40,8 +40,8 @@ if __name__ == "__main__":
 
 You can expose your logic in two different ways:
 
-- ```@davia_app.task``` — for any standalone function (e.g. generate a report, summarize text, send a Slack message)
-- ```@davia_app.graph``` — for structured AI agents using LangGraph or CrewAI
+- `@davia_app.task` — for any standalone function (e.g. generate a report, summarize text, send a Slack message)
+- `@davia_app.graph` — for structured AI agents using LangGraph or CrewAI
 
 Once defined, these functions become available for UI generation inside Davia.
 
@@ -51,10 +51,8 @@ Once defined, these functions become available for UI generation inside Davia.
 
 When you run your script, Davia automatically starts a local server and opens the editor in your browser — already connected to your app.
 
-
-🔗 The editor opens at:  
-[https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025](https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025)
-
+🔗 The editor opens at:\
+https://dev.davia.ai/dashboard?entrypoint=http://127.0.0.1:2025
 
 There’s nothing else to configure. Davia reads your tasks and graphs directly from your code.
 
