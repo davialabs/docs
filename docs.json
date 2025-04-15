@@ -16,7 +16,11 @@
       },
       {
         "group": "Setup",
-        "pages": ["setup/how-it-works","setup/defining-tasks" ,"setup/defining-graphs"]
+        "pages": [
+          "setup/how-it-works",
+          "setup/defining-tasks",
+          "setup/defining-graphs"
+        ]
       }
     ],
     "global": {
@@ -40,8 +44,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light_logo.webp",
+    "dark": "/logo/dark_logo.webp"
   },
   "navbar": {
     "links": [
