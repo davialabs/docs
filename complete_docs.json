@@ -68,7 +68,7 @@
       "linkedin": "https://www.linkedin.com/company/davia-ai/"
     }
   },
-  "contextual": {
-    "options": ["copy", "chatgpt", "claude"]
+  "banner": {
+    "content": "🚀 Davia is live! [Learn more](https://dev.davia.ai/)"
   }
 }
