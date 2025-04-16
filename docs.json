@@ -44,8 +44,8 @@
     }
   },
   "logo": {
-    "light": "/logo/logo-black.webp",
-    "dark": "/logo/logo-white.webp"
+    "light": "/logo/logo-black.svg",
+    "dark": "/logo/logo-white.svg"
   },
   "navbar": {
     "links": [
