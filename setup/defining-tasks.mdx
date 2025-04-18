@@ -13,7 +13,7 @@ This is the main way to let users interact with your backend: they can trigger a
 
 ## 1. Create your first task
 
-To create a task, use the `@davia_app.task` decorator. Davia will generate a UI based on the function’s inputs and output type.
+To create a task, use the `@davia_app.task` decorator. Davia will generate a UI based on the function's inputs and output type.
 
 ```python
 from davia import Davia, run_server
@@ -24,6 +24,16 @@ davia_app = Davia()
 def convert_to_uppercase(text: str) -> str:
     """
     Converts a string to uppercase.
+
+    Args:
+        text (str): The input string to convert to uppercase.
+
+    Returns:
+        str: The input string converted to uppercase.
+
+    Example:
+        Input: "hello world"
+        Output: "HELLO WORLD"
     """
     return text.upper()
 
@@ -35,7 +45,7 @@ When you run this file, Davia will open the editor at:
 
 🔗 [https://dev.davia.ai/dashboard](https://dev.davia.ai/dashboard)
 
-You’ll see:
+You'll see:
 
 - A single-line input for `text`
 - A button to run the task
@@ -53,7 +63,18 @@ For example:
 @davia_app.task
 def compute_discount(price: float, percentage: float) -> float:
     """
-    Applies a discount percentage to a price.
+    Calculate the discounted price by applying a percentage discount.
+
+    Args:
+        price (float): The original price value.
+        percentage (float): The discount percentage (e.g., 20 for 20%).
+
+    Returns:
+        float: The final price after applying the discount.
+
+    Examples:
+        >>> compute_discount(100.0, 20.0)
+        80.0
     """
     return price * (1 - percentage / 100)
 ```
@@ -111,5 +132,5 @@ Davia can generate:
 - ✅ Always define input and output types
 - ✅ Use descriptive names for functions and parameters
 - ✅ Write helpful docstrings
-- ❌ Don’t use unsupported dynamic arguments (like `*args`)
+- ❌ Don't use unsupported dynamic arguments (like `*args`)
 - ❌ Avoid relying on global state or side effects
