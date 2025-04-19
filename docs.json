@@ -19,7 +19,8 @@
         "pages": [
           "setup/how-it-works",
           "setup/defining-tasks",
-          "setup/defining-graphs"
+          "setup/defining-graphs",
+          "setup/state-management"
         ]
       }
     ],

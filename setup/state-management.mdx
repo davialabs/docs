@@ -1,0 +1,194 @@
+---
+title: "State Management"
+description: "State management in Davia allows you to maintain application state across different tasks and function calls. This documentation explains how to effectively use state in your Davia applications."
+---
+
+## Overview
+
+State management in Davia allows you to maintain application state across different tasks and function calls. This documentation explains how to effectively use state in your Davia applications.
+
+## Getting Started with State
+
+### Initializing State
+
+To use state in your Davia application, initialize it during app creation:
+
+```python
+from davia import Davia, run_server, State
+import pandas as pd
+
+# Initialize your state
+products = pd.DataFrame(
+    {
+        "name": ["Laptop", "Phone", "Headphones"],
+        "price": [999.99, 699.99, 199.99],
+        "quantity": [1, 1, 2],
+    }
+)
+
+# Create a state dictionary with named keys
+state = {"products": products}
+
+# Pass the state to your Davia app
+app = Davia(
+    title="Product Manager",
+    description="Manage your shopping list with ease",
+    state=state,
+)
+```
+
+### Accessing and Modifying State
+
+Davia uses Python's type annotations to access state in your tasks:
+
+```python
+from typing import Annotated
+
+@app.task
+def add_product(
+    products: Annotated[pd.DataFrame, State("products")],  # Access 'products' from state
+    name: str,
+    price: float,
+    quantity: int = 1,
+):
+    # Add to the state
+    new_product = pd.DataFrame(
+        {"name": [name], "price": [price], "quantity": [quantity]}
+    )
+    products.loc[len(products)] = new_product.iloc[0]
+```
+
+## State Management Patterns
+
+### Reading State
+
+To read from state without modifying it:
+
+```python
+@app.task
+def get_products(
+    products: Annotated[pd.DataFrame, State("products")],
+) -> dict:
+    return products.to_dict()
+```
+
+### Updating State
+
+Update state by accessing it via annotation and modifying it directly:
+
+```python
+@app.task
+def update_price(
+    products: Annotated[pd.DataFrame, State("products")],
+    product_name: str,
+    new_price: float,
+):
+    products.loc[products["name"] == product_name, "price"] = new_price
+```
+
+### Clearing State
+
+You can clear parts of your state:
+
+```python
+@app.task
+def clear_products(
+    products: Annotated[pd.DataFrame, State("products")],
+):
+    products.drop(products.index, inplace=True)
+```
+
+## Best Practices
+
+### Multiple State Components
+
+You can have multiple components in your state and access them separately:
+
+```python
+# Initial state with multiple components
+state = {
+    "products": products_df,
+    "user_preferences": user_prefs_dict
+}
+
+@app.task
+def update_user_theme(
+    preferences: Annotated[dict, State("user_preferences")],
+    theme: str
+):
+    preferences["theme"] = theme
+```
+
+### State Types
+
+Davia supports various data types for state:
+
+- Pandas DataFrames
+- Dictionaries
+- Lists
+- Custom objects
+- Primitive types (within a container)
+
+## Advanced Usage
+
+### State Transformations
+
+Transform state data before returning it:
+
+```python
+@app.task
+def get_total_cost(
+    products: Annotated[pd.DataFrame, State("products")],
+) -> float:
+    return (products["price"] * products["quantity"]).sum()
+```
+
+## Complete Example
+
+```python
+from davia import Davia, run_server, State
+from typing import Annotated
+import pandas as pd
+
+# Initialize state
+products = pd.DataFrame(
+    {
+        "name": ["Laptop", "Phone"],
+        "price": [999.99, 699.99],
+        "quantity": [1, 1],
+    }
+)
+
+state = {"products": products}
+
+app = Davia(
+    title="Product Manager",
+    description="Manage your products",
+    state=state,
+)
+
+@app.task
+def add_product(
+    products: Annotated[pd.DataFrame, State("products")],
+    name: str,
+    price: float,
+    quantity: int = 1,
+):
+    new_product = pd.DataFrame(
+        {"name": [name], "price": [price], "quantity": [quantity]}
+    )
+    products.loc[len(products)] = new_product.iloc[0]
+
+@app.task
+def get_products(
+    products: Annotated[pd.DataFrame, State("products")],
+) -> dict:
+    return products.to_dict()
+
+if __name__ == "__main__":
+    run_server(app, browser=False)
+```
+
+## Conclusion
+
+State management in Davia provides a convenient way to maintain application data across tasks. By using type annotations with the `State` class, you can easily access and modify your application's state in a type-safe manner.
