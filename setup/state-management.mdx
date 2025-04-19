@@ -5,9 +5,9 @@ description: "State management in Davia allows you to maintain application state
 
 ## Overview
 
-State management in Davia allows you to maintain application state across different tasks and function calls. This documentation explains how to effectively use state in your Davia applications.
+State management in Davia allows you to maintain application state across different tasks and function calls. Davia's state management system provides a clean and intuitive way to work with persistent data using Python's type annotations. By leveraging the `Annotated` type and `State` class, you can easily access, modify, and share state between different tasks without complex boilerplate code.
 
-## Getting Started with State
+## Working with State
 
 ### Initializing State
 
@@ -37,9 +37,13 @@ app = Davia(
 )
 ```
 
-### Accessing and Modifying State
+### Accessing State in Tasks
 
-Davia uses Python's type annotations to access state in your tasks:
+Davia provides two main approaches for accessing state in your tasks:
+
+#### Method 1: Using Annotated Type with State Key
+
+The most common approach uses Python's `Annotated` type to inject a specific state component directly as a parameter:
 
 ```python
 from typing import Annotated
@@ -51,18 +55,43 @@ def add_product(
     price: float,
     quantity: int = 1,
 ):
-    # Add to the state
+    # Modify the state
     new_product = pd.DataFrame(
         {"name": [name], "price": [price], "quantity": [quantity]}
     )
     products.loc[len(products)] = new_product.iloc[0]
 ```
 
-## State Management Patterns
+The `Annotated[type, State("key_name")]` syntax tells Davia to:
+
+1. Locate the value with key "key_name" from the application state
+2. Inject that value into your function parameter
+3. Expect the value to match the specified type (e.g., `pd.DataFrame`)
+
+#### Method 2: Accessing the Entire State Object
+
+You can also access the complete state object and retrieve components from it:
+
+```python
+@app.task
+def get_element_from_state(state: State):
+    # Access any part of the state using dictionary syntax
+    return state["products"]
+```
+
+When you annotate a parameter with just `State` (without `Annotated`), Davia injects the entire state dictionary. You can then access any component using regular dictionary syntax.
+
+This approach is particularly useful when you need to:
+
+- Access multiple state components in a single function
+- Dynamically determine which state components to use based on runtime conditions
+- Handle state components that might not exist
 
 ### Reading State
 
-To read from state without modifying it:
+When you only need to read state without modifying it, you can use either method:
+
+Using Method 1 (Annotated with specific state key):
 
 ```python
 @app.task
@@ -72,9 +101,18 @@ def get_products(
     return products.to_dict()
 ```
 
-### Updating State
+Using Method 2 (Accessing complete state):
 
-Update state by accessing it via annotation and modifying it directly:
+```python
+@app.task
+def get_products(state: State) -> dict:
+    products = state["products"]
+    return products.to_dict()
+```
+
+### Modifying State
+
+State modifications are applied directly to the parameter received in your function:
 
 ```python
 @app.task
@@ -86,21 +124,7 @@ def update_price(
     products.loc[products["name"] == product_name, "price"] = new_price
 ```
 
-### Clearing State
-
-You can clear parts of your state:
-
-```python
-@app.task
-def clear_products(
-    products: Annotated[pd.DataFrame, State("products")],
-):
-    products.drop(products.index, inplace=True)
-```
-
-## Best Practices
-
-### Multiple State Components
+## Working with Multiple State Components
 
 You can have multiple components in your state and access them separately:
 
@@ -119,7 +143,7 @@ def update_user_theme(
     preferences["theme"] = theme
 ```
 
-### State Types
+## Supported State Types
 
 Davia supports various data types for state:
 
@@ -129,21 +153,7 @@ Davia supports various data types for state:
 - Custom objects
 - Primitive types (within a container)
 
-## Advanced Usage
-
-### State Transformations
-
-Transform state data before returning it:
-
-```python
-@app.task
-def get_total_cost(
-    products: Annotated[pd.DataFrame, State("products")],
-) -> float:
-    return (products["price"] * products["quantity"]).sum()
-```
-
-## Complete Example
+## Complete Implementation
 
 ```python
 from davia import Davia, run_server, State
@@ -167,6 +177,7 @@ app = Davia(
     state=state,
 )
 
+# Method 1: Using Annotated with specific state key
 @app.task
 def add_product(
     products: Annotated[pd.DataFrame, State("products")],
@@ -178,6 +189,7 @@ def add_product(
         {"name": [name], "price": [price], "quantity": [quantity]}
     )
     products.loc[len(products)] = new_product.iloc[0]
+
 
 @app.task
 def get_products(
