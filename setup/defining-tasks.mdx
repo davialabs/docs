@@ -18,7 +18,7 @@ To create a task, use the `@app.task` decorator. Davia will generate a UI based 
 ```python
 from davia import Davia, run_server
 
-davia_app = Davia()
+app = Davia()
 
 @app.task
 def convert_to_uppercase(text: str) -> str:

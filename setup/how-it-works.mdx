@@ -1,63 +1,31 @@
 ---
 title: "How Davia Works"
-description: "Understand the workflow of building apps with Davia — from Python functions to a working frontend."
+description: "Understand how to build complete applications with Davia — from Python functions to a working app."
 ---
 
-Davia connects your Python backend to a custom frontend — without requiring any frontend code. You write logic in Python, launch the server, and describe the UI you need in plain language. Davia takes care of the rest.
+Davia helps you build complete applications by connecting your Python backend to a custom interface. Write your application logic in Python, launch the server, and describe how you want your app to work.
 
-## 1. Set up your backend
+## Core Concepts
 
-Start by writing your backend logic using Python functions.
+### Backend-First Development
 
-To make your app visible to Davia, you wrap your logic in a `Davia` instance and launch it with:
+1. Write Python functions with clear inputs and outputs
+2. Davia exposes these through a local server
+3. The editor makes them available for app generation
 
-```python
-from davia import Davia, run_server
+### Two Ways to Expose Logic
 
-app = Davia()
+- `@app.task` — for any standalone function (e.g. generate a report, summarize text, display a dataframe)
+- `@app.graph` — for structured AI agents using LangGraph
 
-if __name__ == "__main__":
-    run_server(davia_app)
-```
+### Application Generation
 
----
-
-## 2. Add tasks or graphs
-
-You can expose your logic in two different ways:
-
-- `@app.task` — for any standalone function (e.g. generate a report, summarize text, send a Slack message)
-- `@app.graph` — for structured AI agents using LangGraph or CrewAI
-
-Once defined, these functions become available for UI generation inside Davia.
-
----
-
-## 3. Open the editor
-
-When you run your script, Davia automatically starts a local server and opens the editor in your browser — already connected to your app.
-
-🔗 The editor opens at:\
-https://dev.davia.ai/dashboard
+Once your backend is set up (see [Quickstart](/quickstart)), use the editor to build your application:
 
 ![Dashboard Screen](/images/dashboard-screen.png)
 
-There's nothing else to configure. Davia reads your tasks and graphs directly from your code.
+1. The editor connects to your server
+2. Your functions are listed
+3. Describe how you want your app to work
 
----
-
-## 4. Describe your interface
-
-Inside the editor, you'll see your available functions. Just describe the kind of app you want.
-
-For example:
-
-> Build a simple dashboard with two buttons: one to generate a daily report using `generate_report`, and another to email it using `send_email`.
-
-Davia creates the corresponding interface, wired to your backend. You can test it immediately and iterate on the logic or layout at any time.
-
----
-
-## 5. Iterate visually, code freely
-
-You stay in control of your backend in Python. Davia gives you full flexibility on the logic — while letting you skip all the time spent on frontend scaffolding, wiring, and state management.
+Davia creates the complete application. Test and iterate on both logic and user experience.

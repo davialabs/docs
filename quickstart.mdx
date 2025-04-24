@@ -20,12 +20,14 @@ from davia import Davia, run_server
 
 app = Davia()
 
+
 @app.task
-def hello_world():
+def get_welcome_message(name: str = "there") -> str:
     """
-    A simple task that returns a greeting.
+    Return a personalized welcome message.
     """
-    return "Hello, World!"
+    return f"Hi {name}! Welcome to Davia !"
+
 
 if __name__ == "__main__":
     run_server(app)
@@ -48,7 +50,7 @@ https://dev.davia.ai/dashboard
 Now you can use the visual editor to design your interface with a simple prompt:
 
 ```markdown
-Clean dashboard with welcome button that displays blue message when clicked
+Minimal interface to input a name and receive a blue welcome message
 ```
 
 That's it! Davia will generate your frontend instantly.
