@@ -11,7 +11,7 @@ This is the main way to let users interact with your backend: they can trigger a
 
 ---
 
-## 1. Create your first task
+## Create your first task
 
 To create a task, use the `@app.task` decorator. Davia will generate a UI based on the function's inputs and output type.
 
@@ -21,147 +21,55 @@ from davia import Davia, run_server
 app = Davia()
 
 @app.task
-def convert_to_uppercase(text: str) -> str:
-    """
-    Converts a string to uppercase.
-
-    Args:
-        text (str): The input string to convert to uppercase.
-
-    Returns:
-        str: The input string converted to uppercase.
-
-    Example:
-        Input: "hello world"
-        Output: "HELLO WORLD"
-    """
-    return text.upper()
-
-@app.task
-def hello_world():
-    """
-    A simple task that returns a greeting.
-    """
-    return "Hello, World!"
-
-@app.task
-def process_text(text: str) -> str:
-    """
-    Process the input text and return a response.
-    """
-    return f"Processed: {text}"
-
-@app.task
-def complex_task(
-    name: str,
-    age: int,
-    is_active: bool = True,
-    tags: list[str] = None
+def action_process_chart_data(
+    start: float,
+    end: float
 ) -> dict:
     """
-    A more complex task with multiple parameters.
+    Generate chart data from start to end values.
     """
+    step = (end - start) / 10
     return {
-        "name": name,
-        "age": age,
-        "is_active": is_active,
-        "tags": tags or []
+        "x": [start + i * step for i in range(11)],
+        "y": [x * x for x in range(11)],
+        "range": [start, end]
     }
 
+@app.task
+def display_current_time() -> str:
+    """
+    Returns the current time.
+    """
+    from datetime import datetime
+    return datetime.now().strftime("%H:%M:%S")
+
 if __name__ == "__main__":
-    run_server(davia_app)
+    run_server(app)
 ```
 
 When you run this file, Davia will open the editor at:
 
 🔗 [https://dev.davia.ai/dashboard](https://dev.davia.ai/dashboard)
 
-You'll see:
-
-- A single-line input for `text`
-- A button to run the task
-- A display of the result in uppercase
-
----
-
-## 2. Use input/output types
-
-Davia uses function signatures to build the UI automatically.
-
-For example:
-
-```python
-@app.task
-def compute_discount(price: float, percentage: float) -> float:
-    """
-    Calculate the discounted price by applying a percentage discount.
-
-    Args:
-        price (float): The original price value.
-        percentage (float): The discount percentage (e.g., 20 for 20%).
-
-    Returns:
-        float: The final price after applying the discount.
-
-    Examples:
-        >>> compute_discount(100.0, 20.0)
-        80.0
-    """
-    return price * (1 - percentage / 100)
-```
-
-This creates:
-
-- Two numeric inputs
-- A button to run the calculation
-- The discounted price as the output
-
-Supported input types include:
-
-- `str`, `int`, `float`, `bool`
-- Lists and dictionaries
-- Optional values using typing (e.g. `Optional[str]`)
-
----
-
-## 3. Add a useful docstring
-
-The docstring appears in the UI to explain what each task does.
-
-It helps your users understand the purpose and behavior of the function.
-
-✅ Use clear, action-oriented descriptions:  
-`Returns the discounted price based on the input percentage.`
-
-🚫 Avoid vague or technical notes:  
-`Test helper function for internal calculations.`
-
----
-
-## 4. Example: checkbox + output
-
-```python
-@app.task
-def toggle_message(show_details: bool) -> str:
-    """
-    Returns a detailed message only if 'show_details' is True.
-    """
-    if show_details:
-        return "Detailed explanation: all systems are operational."
-    return "OK."
-```
-
-Davia can generate:
-
-- A checkbox labeled `show_details`
-- A response message area that updates based on the input
-
 ---
 
 ## Best practices
 
+- ✅ Use clear prefixes: `action_` for operations with inputs, `display_` for information without inputs
 - ✅ Always define input and output types
-- ✅ Use descriptive names for functions and parameters
-- ✅ Write helpful docstrings
-- ❌ Don't use unsupported dynamic arguments (like `*args`)
-- ❌ Avoid relying on global state or side effects
+- ✅ Write concise, purpose-focused docstrings
+- ❌ Avoid dynamic arguments (like `*args`)
+
+  ```python
+  # ❌ Don't do this
+  @app.task
+  def action_process_data(*args):  # Dynamic arguments are not supported
+      return sum(args)
+
+  # ✅ Do this instead
+  @app.task
+  def action_process_data(numbers: list[float]) -> float:
+      return sum(numbers)
+  ```
+
+- 🔄 For state management, see the [State Management](/setup/state-management) section
