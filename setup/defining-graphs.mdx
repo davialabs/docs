@@ -3,6 +3,20 @@ title: "Adding AI Agents"
 description: "Use @davia_app.graph to connect LangGraph-based agents with real-time UI in Davia."
 ---
 
+### See it in action
+
+Here's a quick demo:
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/sS22V5RVhEQ?si=QQthL8pwMQP_-mNV"
+  title="Davia Graph Interface Demo"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
 Davia supports **LangGraph-style AI agents** through the `@davia_app.graph` decorator.
 
 A **graph** represents an AI workflow — a sequence of steps connected through logic and memory (called **state**). It's useful for building advanced agents like chatbots, assistants, or tool-using flows.
@@ -77,7 +91,7 @@ When you expose a LangGraph agent:
 - Davia reads the **state class** (e.g. `MessagesState`) and builds an entire UI based on it,
 - It connects to the graph's lifecycle: `START → node(s) → END`
 - It can **stream the output** live as each node in the graph runs
-- The entire UI is automatically adapted to your graph’s logic
+- The entire UI is automatically adapted to your graph's logic
 
 ---
 
@@ -85,4 +99,4 @@ When you expose a LangGraph agent:
 
 - ✅ Always return a Graph from your decorated function
 - ✅ Add a helpful docstring to describe your agent
-- ❌ Don’t return the graph directly at the top level — it must be wrapped in a function
+- ❌ Don't return the graph directly at the top level — it must be wrapped in a function
