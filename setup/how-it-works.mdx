@@ -14,7 +14,7 @@ To make your app visible to Davia, you wrap your logic in a `Davia` instance and
 ```python
 from davia import Davia, run_server
 
-davia_app = Davia()
+app = Davia()
 
 if __name__ == "__main__":
     run_server(davia_app)
@@ -26,8 +26,8 @@ if __name__ == "__main__":
 
 You can expose your logic in two different ways:
 
-- `@davia_app.task` — for any standalone function (e.g. generate a report, summarize text, send a Slack message)
-- `@davia_app.graph` — for structured AI agents using LangGraph or CrewAI
+- `@app.task` — for any standalone function (e.g. generate a report, summarize text, send a Slack message)
+- `@app.graph` — for structured AI agents using LangGraph or CrewAI
 
 Once defined, these functions become available for UI generation inside Davia.
 

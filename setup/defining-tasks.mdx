@@ -1,6 +1,6 @@
 ---
 title: "Defining Tasks"
-description: "Use @davia_app.task to expose Python functions to the frontend."
+description: "Use @app.task to expose Python functions to the frontend."
 ---
 
 In Davia, a **task** is a Python function that becomes available from the frontend.
@@ -13,14 +13,14 @@ This is the main way to let users interact with your backend: they can trigger a
 
 ## 1. Create your first task
 
-To create a task, use the `@davia_app.task` decorator. Davia will generate a UI based on the function's inputs and output type.
+To create a task, use the `@app.task` decorator. Davia will generate a UI based on the function's inputs and output type.
 
 ```python
 from davia import Davia, run_server
 
 davia_app = Davia()
 
-@davia_app.task
+@app.task
 def convert_to_uppercase(text: str) -> str:
     """
     Converts a string to uppercase.
@@ -36,6 +36,37 @@ def convert_to_uppercase(text: str) -> str:
         Output: "HELLO WORLD"
     """
     return text.upper()
+
+@app.task
+def hello_world():
+    """
+    A simple task that returns a greeting.
+    """
+    return "Hello, World!"
+
+@app.task
+def process_text(text: str) -> str:
+    """
+    Process the input text and return a response.
+    """
+    return f"Processed: {text}"
+
+@app.task
+def complex_task(
+    name: str,
+    age: int,
+    is_active: bool = True,
+    tags: list[str] = None
+) -> dict:
+    """
+    A more complex task with multiple parameters.
+    """
+    return {
+        "name": name,
+        "age": age,
+        "is_active": is_active,
+        "tags": tags or []
+    }
 
 if __name__ == "__main__":
     run_server(davia_app)
@@ -60,7 +91,7 @@ Davia uses function signatures to build the UI automatically.
 For example:
 
 ```python
-@davia_app.task
+@app.task
 def compute_discount(price: float, percentage: float) -> float:
     """
     Calculate the discounted price by applying a percentage discount.
@@ -110,7 +141,7 @@ It helps your users understand the purpose and behavior of the function.
 ## 4. Example: checkbox + output
 
 ```python
-@davia_app.task
+@app.task
 def toggle_message(show_details: bool) -> str:
     """
     Returns a detailed message only if 'show_details' is True.

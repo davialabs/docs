@@ -1,6 +1,6 @@
 ---
 title: "Adding AI Agents"
-description: "Use @davia_app.graph to connect LangGraph-based agents with real-time UI in Davia."
+description: "Use @app.graph to connect LangGraph-based agents with real-time UI in Davia."
 ---
 
 ### See it in action
@@ -17,7 +17,7 @@ Here's a quick demo:
   referrerpolicy="strict-origin-when-cross-origin"
 ></iframe>
 
-Davia supports **LangGraph-style AI agents** through the `@davia_app.graph` decorator.
+Davia supports **LangGraph-style AI agents** through the `@app.graph` decorator.
 
 A **graph** represents an AI workflow — a sequence of steps connected through logic and memory (called **state**). It's useful for building advanced agents like chatbots, assistants, or tool-using flows.
 
@@ -30,7 +30,7 @@ Davia connects directly to the graph you define and builds a UI so users can int
 In Davia, a graph is:
 
 - A **LangGraph** object (`StateGraph`) with defined nodes and transitions
-- Exposed to Davia via `@davia_app.graph`
+- Exposed to Davia via `@app.graph`
 - Fully interactive in the frontend — users can provide input, trigger execution, and see the result live
 
 If your agent is conversational, **Davia can generate a chat-style interface** to let users interact with it naturally.
@@ -55,7 +55,7 @@ def start(state: MessagesState) -> MessagesState:
 davia_app = Davia()
 
 
-@davia_app.graph
+@app.graph
 def hello_graph():
     """
     A minimal LangGraph agent that returns a greeting.
