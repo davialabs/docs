@@ -20,7 +20,8 @@
           "setup/how-it-works",
           "setup/defining-tasks",
           "setup/defining-graphs",
-          "setup/state-management"
+          "setup/state-management",
+          "setup/debug"
         ]
       }
     ],
