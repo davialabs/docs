@@ -25,13 +25,18 @@ Davia connects directly to the graph you define and builds a UI so users can int
 
 ---
 
-## 1. What is a graph?
+## 1. What is a graph in AI?
 
-In Davia, a graph is:
+A graph is an orchestration framework for building controllable AI agents. It enables complex workflows with customizable architectures, long-term memory, and human-in-the-loop capabilities to handle sophisticated tasks reliably.
 
-- A **LangGraph** object (`StateGraph`) with defined nodes and transitions
-- Exposed to Davia via `@app.graph`
-- Fully interactive in the frontend — users can provide input, trigger execution, and see the result live
+### How Davia works with graphs
+
+Davia seamlessly integrates with LangGraph-style AI agents through the `@app.graph` decorator. When you expose a graph to Davia:
+
+- It reads your graph's structure and state
+- Builds an interactive UI that matches your workflow
+- Handles real-time inputs and streaming outputs
+- Manages state transitions automatically
 
 If your agent is conversational, **Davia can generate a chat-style interface** to let users interact with it naturally.
 
@@ -69,7 +74,7 @@ def hello_graph():
 
 #  Launch the server
 if __name__ == "__main__":
-    run_server(davia_app)
+    run_server(app)
 ```
 
 When you run this file, Davia opens the editor at:
