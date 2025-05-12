@@ -16,7 +16,7 @@ This is the main way to let users interact with your backend: they can trigger a
 To create a task, use the `@app.task` decorator. Davia will generate a UI based on the function's inputs and output type.
 
 ```python
-from davia import Davia, run_server
+from davia import Davia
 
 app = Davia()
 
@@ -44,7 +44,7 @@ def display_current_time() -> str:
     return datetime.now().strftime("%H:%M:%S")
 
 if __name__ == "__main__":
-    run_server(app)
+    app.run()
 ```
 
 When you run this file, Davia will open the editor at:
