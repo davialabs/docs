@@ -15,13 +15,21 @@
         "pages": ["introduction", "quickstart"]
       },
       {
-        "group": "Setup",
+        "group": "Develop",
         "pages": [
-          "setup/how-it-works",
-          "setup/defining-tasks",
-          "setup/defining-graphs",
-          "setup/debug"
+          "develop/how-it-works",
+          "develop/defining-tasks",
+          "develop/defining-graphs",
+          "develop/debug"
         ]
+      },
+      {
+        "group": "Deploy",
+        "pages": ["deploy/deploying-the-interface"]
+      },
+      {
+        "group": "Guides and Best Practices",
+        "pages": ["guides/data-handling", "guides/tips-best-practices"]
       }
     ],
     "global": {

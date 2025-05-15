@@ -44,3 +44,26 @@ Run your Python file:
 ```bash
 python welcome.py
 ```
+
+Alternatively, you can use the Davia CLI command instead of including `app.run()` in your code:
+
+```python
+# Without app.run() in your code
+from davia import Davia
+
+app = Davia()
+
+
+@app.task
+def get_welcome_message(name: str = "there") -> str:
+    """
+    Return a personalized welcome message.
+    """
+    return f"Hi {name}! Welcome to Davia !"
+```
+
+Then run it with:
+
+```bash
+davia run welcome.py
+```

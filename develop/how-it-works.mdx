@@ -1,0 +1,54 @@
+---
+title: "Core concepts"
+description: "Understand how to build complete applications with Davia — from Python functions to a working app."
+---
+
+Davia helps you build complete applications by connecting your Python backend to a custom interface. Write your application logic in Python, launch the server, and describe how you want your app to work.
+
+## Core Concepts
+
+### Backend-First Development
+
+1. Write Python functions with clear inputs and outputs
+2. Davia exposes these through a local server
+
+### Two Ways to Expose Logic
+
+- `@app.task` — for any standalone function (e.g. generate a report, summarize text, display a dataframe)
+- `@app.graph` — for structured AI agents using LangGraph
+
+### How the Connection Works
+
+When you run your Davia app:
+
+1. Your Python backend starts running locally on your machine (`http://127.0.0.1:2025/`)
+2. Davia automatically opens a browser window to [dev.davia.ai](https://dev.davia.ai)
+3. The dev.davia.ai editor establishes a secure connection to your local server
+4. It discovers your exposed functions/graphs by connecting to your localhost endpoints
+5. Your code runs privately on your machine while you use Davia's powerful editor interface
+
+Once connected, your local functions will appear in the interface:
+
+![Local Tasks](/images/local-tasks.png)
+
+### Application Generation
+
+After connection, in the editor you can:
+
+1. See your available functions and tasks listed automatically
+2. Visually build your application interface
+3. Describe workflows and configure app behavior
+4. Test your app directly from the browser
+5. See changes to your Python code reflected after restarting your server, making iteration seamless
+
+![Dashboard Screen](/images/dashboard-screen.png)
+
+Davia creates the complete application. Test and iterate on both logic and user experience.
+
+### Deployment
+
+Once you're satisfied with your application, Davia handles deployment for you:
+
+1. Deploy both frontend and backend with a single click
+2. No need for manual infrastructure setup or configuration
+3. Your application is instantly available for your users

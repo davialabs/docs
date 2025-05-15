@@ -46,6 +46,14 @@ If your agent is conversational, **Davia can generate a chat-style interface** t
 
 Here's a full example of a simple one-turn chatbot using LangGraph and Davia.
 
+First, install Davia with LangGraph support:
+
+```bash
+pip install "davia[langgraph]"
+```
+
+Then create your agent:
+
 ```python
 from davia import Davia
 from langgraph.graph import StateGraph, START, END, MessagesState
