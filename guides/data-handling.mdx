@@ -1,4 +1,69 @@
 ---
 title: "Data handling"
-description: "Test "
+description: "Understanding how Davia handles your data during development and deployment"
 ---
+
+# Data Handling in Davia
+
+## Local Development
+
+When developing with Davia, your data security is a priority:
+
+- **Local-only data processing**: Davia doesn't read or access the data of your Python tasks, graphs, or other endpoints
+- **Frontend-focused**: We build a frontend interface while your data stays completely local on your computer
+- **Privacy by design**: Your sensitive information never leaves your local environment during development
+
+## Model Inputs
+
+The only parameters that are taken as inputs to the model are:
+
+- The **OpenAPI JSON specification** - This is the machine-readable description of your API that defines your endpoints, their operations, input parameters, and response formats
+
+No actual data content, database connections, or sensitive information is accessed or transmitted.
+
+### OpenAPI Specification Example
+
+Here's a simplified example of what an OpenAPI specification looks like:
+
+```json
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Sample API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Returns a list of users",
+        "responses": {
+          "200": {
+            "description": "A JSON array of user names",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+This specification describes your API endpoints without including any actual data, protecting your sensitive information.
+
+## Deployment Architecture
+
+When deploying your Davia application:
+
+- **Frontend**: Deployed on Vercel for optimal performance and reliability
+- **Backend**: Hosted on Google Cloud Run, providing scalability and security
+
+This separation ensures proper handling of your application while maintaining data integrity.

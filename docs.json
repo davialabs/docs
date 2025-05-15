@@ -25,7 +25,10 @@
       },
       {
         "group": "Deploy",
-        "pages": ["deploy/deploying-the-interface"]
+        "pages": [
+          "deploy/deploying-the-interface",
+          "deploy/deploying-the-backend"
+        ]
       },
       {
         "group": "Guides and Best Practices",
