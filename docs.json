@@ -7,7 +7,10 @@
     "light": "#76d9e3",
     "dark": "#186d75"
   },
-  "favicon": "/logo/dark.svg",
+  "favicon": {
+    "light": "/logo/favicon.svg",
+    "dark": "/logo/favicon-dark.svg"
+  },
   "navigation": {
     "groups": [
       {
@@ -56,8 +59,8 @@
     }
   },
   "logo": {
-    "light": "/logo/logo-black.webp",
-    "dark": "/logo/logo-white.webp",
+    "light": "/logo/logo.webp",
+    "dark": "/logo/logo-dark.webp",
     "href": "https://davia.ai/"
   },
   "navbar": {
