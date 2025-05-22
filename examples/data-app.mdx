@@ -1,0 +1,98 @@
+---
+title: "Data App Example"
+description: "A minimal Davia app for classifying data based on a user-defined threshold."
+---
+
+To create this data app, open your IDE and create a new Python file. Copy and paste the following code:
+
+```python
+from davia import Davia
+import pandas as pd
+from typing import Dict, Any, List
+import numpy as np
+
+app = Davia("My first Data App")
+
+
+def classify_values(df, column, threshold):
+    """
+    Classifies values in a column based on a user-defined threshold.
+
+    Parameters:
+        df (pd.DataFrame): The input data.
+        column (str): Column to classify.
+        threshold (float): User-defined threshold.
+
+    Returns:
+        pd.DataFrame: Updated DataFrame with 'label' column.
+    """
+    df = df.copy()
+
+    def label(val):
+        if val > threshold + 10:
+            return "high"
+        elif val < threshold - 10:
+            return "low"
+        else:
+            return "medium"
+
+    df["label"] = df[column].apply(label)
+    return df
+
+
+@app.task
+def compute_data(user_threshold: int) -> List[Dict[str, Any]]:
+    """
+    Given a threshold, it will classify the values in the score column into low, medium or high.
+    It will return a list of dictionaries with the score and the label.
+
+    Args:
+        user_threshold (int): The threshold to classify the values.
+
+    Returns:
+        List[Dict[str, Any]]: A list of dictionaries with the score and the label.
+
+    Example:
+        compute_data(70)
+        [
+            {"score": 55, "label": "low"},
+            {"score": 65, "label": "medium"},
+            {"score": 72, "label": "medium"},
+            {"score": 78, "label": "medium"},
+            {"score": 90, "label": "high"},
+            {"score": 33, "label": "low"},
+            {"score": 58, "label": "medium"},
+            {"score": 28, "label": "low"},
+            {"score": 13, "label": "low"},
+            {"score": 42, "label": "medium"},
+        ]
+    """
+    p = np.random.randint(1, 100)
+    n = np.random.randint(1, p)
+    example_data = {"score": [np.random.randint(1, p) for _ in range(n)]}
+    df = pd.DataFrame(example_data)
+    result = classify_values(df, "score", user_threshold)
+    # convert to json
+    return result.to_dict(orient="records")
+
+
+if __name__ == "__main__":
+    app.run()
+```
+
+When you run this code, Davia opens a window where you can prompt the interface you would like.
+
+**Prompt used to generate the data app:**
+
+```markdown
+Create an interactive dashboard that visualizes scores classified as low, medium, or high based on a user-defined threshold. Include a summary statistics panel showing the distribution of scores, a bar chart showing the count of each category, and a scatter plot showing the relationship between scores and their categories. Add filters to allow users to focus on specific ranges of scores.
+```
+
+The following dashboard was automatically generated based on the prompt:
+
+<video
+  controls
+  width="100%"
+  src="https://documentation-davia.s3.eu-west-3.amazonaws.com/data-app.mp4"
+  title="Data App Demo"
+></video>

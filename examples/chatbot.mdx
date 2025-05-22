@@ -1,0 +1,60 @@
+---
+title: "Chatbot"
+description: "A minimal Davia app for chatting with model selection."
+---
+
+To create this chatbot app, open your IDE and create a new Python file. Copy and paste the following code:
+
+```python
+from davia import Davia
+from enum import Enum
+
+app = Davia("Chatbot")
+
+
+class ChatbotModelChoices(str, Enum):
+    """Enum to hold available chatbot model choices."""
+
+    GPT4 = "openai-gpt-4"
+    CLAUDE = "claude-3.7"
+
+
+@app.task
+def simple_chatbot(message: str, model: ChatbotModelChoices) -> str:
+    """
+    A simple chatbot function that echoes the user's message with a canned reply, and allows model selection.
+    Args:
+        message: The user's input message.
+        model: The model to use (GPT4 or Claude).
+    Returns:
+        str: The chatbot's response.
+    """
+    if model == ChatbotModelChoices.GPT4:
+        return f"[GPT-4] You said: {message}. How can I help you further?"
+    elif model == ChatbotModelChoices.CLAUDE:
+        return f"[Claude 3.7] You said: {message}. What else can I do for you?"
+    else:
+        return f"[Unknown Model] You said: {message}. Please select a valid model."
+
+
+if __name__ == "__main__":
+    app.run()
+
+```
+
+When you run this code, Davia opens a window where you can prompt the interface you would like.
+
+**Prompt used to generate the chatbot app:**
+
+```markdown
+Create a chatbot interface where I can type a message, select a model (GPT-4 or Claude), and get a response from the selected model.
+```
+
+The following chatbot interface was automatically generated based on the prompt:
+
+<video
+  controls
+  width="100%"
+  src="https://documentation-davia.s3.eu-west-3.amazonaws.com/chatbot.mp4"
+  title="Chatbot App Demo"
+></video>

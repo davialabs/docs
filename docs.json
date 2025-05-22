@@ -12,30 +12,40 @@
     "dark": "/logo/favicon-dark.svg"
   },
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Get Started",
-        "pages": ["introduction", "quickstart"]
-      },
-      {
-        "group": "Develop",
-        "pages": [
-          "develop/how-it-works",
-          "develop/defining-tasks",
-          "develop/defining-graphs",
-          "develop/debug"
+        "tab": "Documentation",
+
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Develop",
+            "pages": [
+              "develop/how-it-works",
+              "develop/defining-tasks",
+              "develop/defining-graphs",
+              "develop/debug"
+            ]
+          },
+          {
+            "group": "Deploy",
+            "pages": [
+              "deploy/deploying-the-interface",
+              "deploy/deploying-the-backend"
+            ]
+          },
+          {
+            "group": "Guides and Best Practices",
+            "pages": ["guides/data-handling", "guides/tips-best-practices"]
+          }
         ]
       },
       {
-        "group": "Deploy",
-        "pages": [
-          "deploy/deploying-the-interface",
-          "deploy/deploying-the-backend"
-        ]
-      },
-      {
-        "group": "Guides and Best Practices",
-        "pages": ["guides/data-handling", "guides/tips-best-practices"]
+        "tab": "Examples",
+        "pages": ["examples/sales-dashboard", "examples/data-app"]
       }
     ],
     "global": {
