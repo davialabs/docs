@@ -45,7 +45,11 @@
       },
       {
         "tab": "Examples",
-        "pages": ["examples/sales-dashboard", "examples/data-app"]
+        "pages": [
+          "examples/sales-dashboard",
+          "examples/data-app",
+          "examples/chatbot"
+        ]
       }
     ],
     "global": {
