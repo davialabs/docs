@@ -87,7 +87,7 @@
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dev.davia.ai/"
+      "href": "https://davia.ai/"
     }
   },
   "footer": {
