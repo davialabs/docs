@@ -1,0 +1,39 @@
+---
+title: "Core Principles"
+description: "Davia apps are **single-page applications** that follow a unique architecture combining static HTML content with interactive MDX components. Each app is designed as a self-contained unit where all functionality is aggregated into a single, cohesive experience."
+---
+
+### 1. **One Component Per Page Rule** ⚠️ CRITICAL
+
+**This is the most important rule in Davia apps:**
+
+- **Each HTML page can have exactly ONE MDX component file**
+- **Component paths MUST always start with `components/...`**
+- **All requested functionalities MUST be aggregated into this single component file**
+- **Components MUST be created BEFORE the HTML page that references them**
+
+**Why This Matters:**
+
+- Prevents system errors and broken functionality
+- Ensures clean separation of concerns
+- Maintains consistent data flow and state management
+- Simplifies debugging and maintenance
+
+### 2. **Dual Content Architecture**
+
+Davia apps use a hybrid approach combining two content types:
+
+#### **HTML Pages** - Static Content Foundation
+
+- **Purpose**: User-facing content structure and basic formatting
+- **Content**: Text, headings, lists, blockquotes, basic formatting
+- **Schema**: Strict Tiptap ProseMirror schema compliance
+- **Editing**: Users can directly edit these pages in the interface
+- **No State**: Pure content only - no data handling or state management
+
+#### **MDX Components** - Interactive Functionality
+
+- **Purpose**: Interactive widgets, forms, charts, dynamic functionality
+- **Content**: React components, JSX expressions, shadcn/ui components
+- **State**: Component-scoped data persistence using `useData()` hook
+- **Scope**: Isolated to individual components (no cross-component data sharing)

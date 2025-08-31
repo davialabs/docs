@@ -1,0 +1,74 @@
+---
+title: "Available UI Components & CSS"
+---
+
+### **Shadcn/ui Components (Globally Available)**
+
+#### **Forms & Inputs**
+
+- `Button`, `Input`, `Textarea`, `Label`, `Checkbox`
+- `RadioGroup`, `Select`, `Switch`, `Slider`
+- `Form`, `FormField`, `FormControl` (with react-hook-form)
+
+#### **Layout & Structure**
+
+- `Card`, `Separator`, `AspectRatio`, `ScrollArea`
+- `ResizablePanel`, `Tabs`, `Accordion`
+
+#### **Data Display**
+
+- `Table`, `Badge`, `Avatar`, `Alert`, `Progress`
+- `ChartContainer` (with Recharts v2 integration)
+
+#### **Overlays & Navigation**
+
+- `Dialog`, `Sheet`, `Popover`, `Tooltip`
+- `Breadcrumb`, `DropdownMenu`
+
+### **Chart Components (Recharts v2)**
+
+```mdx
+export function SalesChart() {
+  const chartData = [
+    { month: "Jan", sales: 4000 },
+    { month: "Feb", sales: 3000 }
+  ];
+  
+  return (
+    <ChartContainer className="min-h-[300px] w-full">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="month" />
+          <YAxis />
+          <Bar dataKey="sales" fill="oklch(0.646 0.222 41.116)" />
+        </BarChart>
+      </ResponsiveContainer>
+    </ChartContainer>
+  );
+
+}
+```
+
+### **Utility Libraries**
+
+- **Forms**: `useForm`, `zodResolver`, `z` (zod validation)
+- **Toasts**: `toast()` function from Sonner
+- **Styling**: Tailwind CSS v4 with safelist restrictions
+
+## Styling Guidelines
+
+### **Tailwind CSS v4 (Safelist Only)**
+
+- **Layout**: `flex`, `grid`, `block`, `hidden`, `overflow-*`
+- **Spacing**: `p-*`, `m-*`, `gap-*`, `space-*`
+- **Sizing**: `w-*`, `h-*`, `max-w-*`
+- **Typography**: `text-*`, `font-*`, `leading-*`
+- **Colors**: Semantic colors (`primary`, `secondary`, `muted`) + grayscale + accent colors
+- **Borders**: `border-*`, `rounded-*`, `ring-*`
+- **Effects**: `shadow-*`, `opacity-*`, `transition-*`
+
+### **Color Usage Rules**
+
+- **Text Colors**: Avoid unless explicitly requested (globally set by shadcn/nextjs)
+- **Background Colors**: Always include `dark:` variants for light/dark mode compatibility

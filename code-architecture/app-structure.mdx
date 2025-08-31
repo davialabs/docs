@@ -1,0 +1,29 @@
+---
+title: "App Structure"
+---
+
+### **File Creation Order (MANDATORY)**
+
+```
+1. Create MDX component file in "components/" directory
+2. Build interactive functionality
+3. Create/update HTML page
+4. Embed component using <mdx-component> element
+```
+
+**Example Structure:**
+
+```
+my-app/
+├── components/
+│   └── dashboard-widget.mdx    ← Created FIRST
+└── dashboard             ← Created SECOND
+```
+
+### **Component Embedding Syntax**
+
+```html
+<mdx-component data-path="components/dashboard-widget"></mdx-component>
+```
+
+**Important**: The `data-path` attribute must exactly match the component file path.

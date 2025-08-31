@@ -1,0 +1,83 @@
+---
+title: "Content Guidelines"
+---
+
+### **HTML Page Rules**
+
+#### **Allowed Elements**
+
+- **Block-level**: `<p>`, `<h1>` through `<h6>`, `<blockquote>`, `<ul>`, `<ol>`, `<li>`, `<pre><code>`, `<hr>`
+- **Task Lists**: `<ul data-type="taskList">` with `<li data-type="taskItem">`
+- **Inline**: `<strong>`, `<em>`, `<code>`, `<a>`, `<br>`
+- **Components**: `<mdx-component data-path="components/name"></mdx-component>`
+
+#### **Example Valid HTML**
+
+```html
+<h1>My Dashboard</h1>
+<p>Welcome to your personalized dashboard.</p>
+<ul data-type="taskList">
+  <li data-checked="false" data-type="taskItem">
+    <input type="checkbox" />
+    <p>Review monthly reports</p>
+  </li>
+</ul>
+<mdx-component data-path="components/sales-chart"></mdx-component>
+```
+
+### **MDX Component Rules**
+
+#### **Component Structure**
+
+```mdx
+export function DashboardWidget() {
+  const { data, updateData } = useData();
+  const [localState, setLocalState] = React.useState(initialValue);
+
+// Component logic here
+
+return (
+
+<Card>
+  <CardHeader>
+    <CardTitle>Dashboard</CardTitle>
+  </CardHeader>
+  <CardContent>{/* Interactive content */}</CardContent>
+</Card>
+); }
+
+<DashboardWidget />
+```
+
+#### **Critical Requirements**
+
+- **NO import statements** - All dependencies are globally available
+- **React prefix required** - Use `React.useState`, `React.useEffect`, etc.
+- **Component definitions at top** - All components must be defined before usage
+- **Self-contained logic** - All variables and functions inside component scope
+- **Proper string handling** - Use double quotes `"` or single quotes `'` (avoid triple quotes)
+
+#### **Data Persistence**
+
+```mdx
+export function DataWidget() {
+  const { data, updateData } = useData();
+  
+  const handleUpdate = (newValue) => {
+    updateData({
+      ...data,           // Preserve existing data
+      newField: newValue // Add/update specific field
+    });
+  };
+  
+  return (
+    <div>
+      <p>Current value: {data.newField || 'No data'}</p>
+      <Button onClick={() => handleUpdate('Updated!')}>
+        Update
+      </Button>
+    </div>
+  );
+
+}
+```

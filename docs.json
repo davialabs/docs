@@ -1,68 +1,58 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Davia",
+  "description": "Davia is a user-generated app hub where anyone can create, share and use apps made by others",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#29bbca",
+    "light": "#76d9e3",
+    "dark": "#186d75"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/logo/favicon.svg",
+    "dark": "/logo/favicon-dark.svg"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "fonts": {
+    "family": "Uncut Sans",
+    "source": "https://davia.ai/UncutSans-Variable.woff2",
+    "format": "woff2"
+  },
+  "background": {
+    "image": {
+      "light": "images/backgrounds/background-light.png",
+      "dark": "images/backgrounds/background-dark.png"
+    }
+  },
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
+        "group": "Getting Started",
+        "pages": ["overview"]
+      },
+      {
+        "group": "Creators",
+        "pages": [
+          "creators/become-a-creator",
+          "creators/start-earning",
+          "creators/publishing"
         ]
       },
       {
-        "tab": "API reference",
-        "groups": [
+        "group": "Technical Specification",
+        "hidden": true,
+        "pages": [
           {
-            "group": "API documentation",
+            "group": "Code Architecture",
+            "icon": "file-code-2",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "code-architecture/principles",
+              "code-architecture/app-structure",
+              "code-architecture/content-guidelines",
+              "code-architecture/available-components",
+              "code-architecture/app-development-flow"
             ]
           }
         ]
@@ -71,57 +61,46 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Home Page",
+          "href": "https://davia.ai/",
+          "icon": "house"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "href": "https://www.reddit.com/r/davia_ai/",
+          "icon": "reddit"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo.webp",
+    "dark": "/logo/logo-dark.webp",
+    "href": "https://davia.ai/"
   },
   "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "App Hub",
+      "href": "https://davia.ai/templates"
+    },
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:contact@davia.ai"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/DaviaLabs",
+      "github": "https://github.com/davialabs",
+      "linkedin": "https://www.linkedin.com/company/davia-labs",
+      "reddit": "https://www.reddit.com/r/davia_ai/",
+      "youtube": "https://www.youtube.com/@DaviaLabs"
     }
+  },
+  "contextual": {
+    "options": ["copy", "chatgpt", "claude"]
   }
 }
