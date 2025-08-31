@@ -1,0 +1,194 @@
+---
+title: "App Development"
+---
+
+### **1. Planning Phase**
+
+- Identify required interactive functionality
+- Plan component structure (single component per page)
+- Determine HTML content structure
+
+### **2. Component Development**
+
+- Create MDX component file in `components/` directory
+- Implement all requested functionality
+- Use `useData()` hook for persistent state
+- Test component behavior
+
+### **3. HTML Page Creation**
+
+- Create HTML page with Tiptap-compliant content
+- Embed component using `<mdx-component>` element
+- Ensure proper content structure and formatting
+
+### **4. Testing & Refinement**
+
+- Verify component embedding works correctly
+- Test data persistence across sessions
+- Ensure responsive design and accessibility
+
+## Common App Patterns
+
+### **Dashboard Apps**
+
+```mdx
+export function Dashboard() {
+  const { data, updateData } = useData();
+  
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>Overview</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="text-center">
+              <p className="text-2xl font-bold">{data.totalUsers || 0}</p>
+              <p className="text-muted-foreground">Total Users</p>
+            </div>
+            {/* More metrics */}
+          </div>
+        </CardContent>
+      </Card>
+      
+      <ChartContainer className="min-h-[300px]">
+        {/* Chart component */}
+      </ChartContainer>
+    </div>
+  );
+
+}
+```
+
+### **Form-Based Apps**
+
+```mdx
+export function ContactForm() {
+  const { data, updateData } = useData();
+  const [formData, setFormData] = React.useState({
+    name: data.name || '',
+    email: data.email || ''
+  });
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateData({
+      ...data,
+      submissions: [...(data.submissions || []), formData]
+    });
+    toast('Form submitted successfully!');
+  };
+  
+  return (
+    <Form onSubmit={handleSubmit}>
+      <div className="space-y-4">
+        <Input
+          value={formData.name}
+          onChange={(e) => setFormData({...formData, name: e.target.value})}
+          placeholder="Your name"
+        />
+        <Input
+          value={formData.email}
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+          placeholder="Your email"
+          type="email"
+        />
+        <Button type="submit">Submit</Button>
+      </div>
+    </Form>
+  );
+
+}
+```
+
+### **Data Visualization Apps**
+
+```mdx
+export function AnalyticsDashboard() {
+  const { data, updateData } = useData();
+  const [timeframe, setTimeframe] = React.useState('month');
+  
+  const chartData = data.analytics?.[timeframe] || [];
+  
+  return (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold">Analytics</h2>
+        <Select value={timeframe} onValueChange={setTimeframe}>
+          <SelectTrigger className="w-32">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="week">Week</SelectItem>
+            <SelectItem value="month">Month</SelectItem>
+            <SelectItem value="year">Year</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      
+      <ChartContainer className="min-h-[400px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Line dataKey="value" stroke="oklch(0.646 0.222 41.116)" />
+          </LineChart>
+        </ResponsiveContainer>
+      </ChartContainer>
+    </div>
+  );
+
+}
+```
+
+## Best Practices
+
+### **Component Design**
+
+1. **Start Simple**: Begin with basic functionality, add complexity gradually
+2. **Single Responsibility**: Each component should handle one main purpose
+3. **Data Isolation**: Use `useData()` for persistence, local state for temporary data
+4. **Error Handling**: Implement proper error states and user feedback
+
+### **Performance Considerations**
+
+1. **Lazy Loading**: Load heavy components only when needed
+2. **Data Caching**: Use `useData()` effectively to avoid unnecessary re-renders
+3. **Component Optimization**: Keep components focused and lightweight
+
+### **Accessibility**
+
+1. **Semantic HTML**: Use proper HTML structure within components
+2. **ARIA Labels**: Provide proper labels for interactive elements
+3. **Keyboard Navigation**: Ensure all interactive elements are keyboard accessible
+4. **Color Contrast**: Follow accessibility guidelines for color usage
+
+## Troubleshooting
+
+### **Common Issues**
+
+#### **Component Not Rendering**
+
+- Check `data-path` matches component file path exactly
+- Ensure component file exists in `components/` directory
+- Verify component syntax and export statements
+
+#### **Data Not Persisting**
+
+- Use `useData()` hook correctly
+- Check `updateData()` calls include spread operator for existing data
+- Verify component data scope isolation
+
+#### **Styling Issues**
+
+- Use only Tailwind classes from the safelist
+- Check for conflicting CSS classes
+- Ensure proper responsive design classes
+
+#### **HTML Validation Errors**
+
+- Follow Tiptap schema strictly
+- Remove unsupported HTML tags
+- Use proper nesting for lists and block elements
