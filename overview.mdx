@@ -1,0 +1,108 @@
+---
+title: "Overview"
+description: "Davia is a user-generated app hub where anyone can create, share and use apps made by others"
+icon: "book-open-text"
+---
+
+import { ChatIcon } from "/snippets/ChatIcon.jsx";
+
+## Davia apps are single-page applications
+
+They follow a unique architecture combining static editable content with interactive components.
+Each Davia app is a complete, standalone application that combines content, functionality, and interactivity into one unified page.
+
+<Card className="text-center" img="images/single-page-app-light.png">
+  Single App Page Example
+</Card>
+
+<br />
+
+<Card
+  icon="file-code-2"
+  horizontal
+  href="/code-architecture/principles"
+  arrow="true"
+>
+  To go into more details of the code architecture behind Davia apps click here
+</Card>
+
+## A single hub for using, creating and sharing personal apps
+
+### All your apps in one workspace
+
+<Columns cols={2}>
+  <Frame>
+    <img
+      src="images/workspace-filesystem.png"
+      alt="Workspace"
+      className="rounded-lg"
+    ></img>
+  </Frame>
+  <Card title="On the left side of the screen your workspace">
+    <br />
+    Should you have an app in it or only notes, each page is accessible in the tree
+    on the left side of your screen. <br />
+    <br /> Your can create new pages, insert subpages in a current one or rename
+    it. All in all, your **workspace behaves like a filesystem**.
+  </Card>
+</Columns>
+
+All your pages are aggregated in your **workspace** which serves as your **personal app hub**.
+Bear in mind that once you import an app to your workspace, it becomes your personal copy. Any data stored is specific to your usage and remains private to you.
+
+### Create, edit apps and navigate your workspace using the agent
+
+Davia's assistant can create or edit your apps through natual language.
+Simply describe what you want, and it will build it for you.
+Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> icon.
+
+<Columns cols={2}>
+  <Card title="This chat is your working partner. Here's what it can do:">
+    <br /> • **Content Creation & Editing** - Create and edit pages/apps
+    <br /> • **File Management** - Read, create, delete, and organize workspace files
+    <br /> • **Data Handling** - Store, update, and process user data and
+    interactions
+    <br /> • **Search & Web Integration** - Find workspace content and research topics
+    online
+  </Card>
+  <Frame>
+    <img src="images/left-chat.png" className="rounded-lg"></img>
+  </Frame>
+</Columns>
+
+### Share your apps - Become a creator
+
+<Columns cols={(2, 2)}>
+  <Card
+    title="Become a Creator"
+    icon="pencil-ruler"
+    href="creators/become-a-creator"
+    arrow="true"
+  >
+    Follow the steps to get verified, publish your first app and become a
+    creator.
+  </Card>
+  <Card
+    title="Start Earning"
+    icon="hand-coins"
+    href="creators/start-earning"
+    arrow="true"
+  >
+    Monetize your apps' usage. Click here for our monetizing policy.
+  </Card>
+  <Card
+    title="Publish in seconds"
+    icon="rss"
+    href="creators/publishing"
+    arrow="true"
+  >
+    Once your app is ready, publish it on the app hub and start sharing.
+  </Card>
+  <Card
+    title="Share on our socials"
+    icon="reddit"
+    href="https://www.reddit.com/r/davia_ai"
+  >
+    Join the community!
+  </Card>
+</Columns>
