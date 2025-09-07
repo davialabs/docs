@@ -71,9 +71,9 @@
           "icon": "reddit"
         },
         {
-          "anchor": "Support",
-          "href": "mailto:contact@davia.ai",
-          "icon": "headset"
+          "anchor": "Discord",
+          "href": "https://discord.gg/BxaFgcU9",
+          "icon": "discord"
         }
       ]
     }
@@ -90,6 +90,10 @@
       "href": "https://davia.ai/templates"
     },
     "links": [
+      {
+        "label": "Support",
+        "href": "mailto:contact@davia.ai"
+      },
       {
         "label": "Sign in",
         "href": "https://davia.ai/login"
