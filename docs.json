@@ -107,5 +107,10 @@
   },
   "contextual": {
     "options": ["copy", "chatgpt", "claude"]
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_ROYu9Dq54HnFpmCE9LzCXYPRPXLUCxgjA8O7EI8FUdS"
+    }
   }
 }
