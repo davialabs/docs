@@ -30,14 +30,15 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["overview", "import-an-app"]
+        "pages": ["overview", "import-a-doc"]
       },
       {
         "group": "Creators",
         "pages": [
           "creators/become-a-creator",
           "creators/start-earning",
-          "creators/publishing"
+          "creators/publishing",
+          "creators/open-source-community"
         ]
       },
       {
@@ -86,7 +87,7 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "App Hub",
+      "label": "Doc Hub",
       "href": "https://davia.ai/templates"
     },
     "links": [
