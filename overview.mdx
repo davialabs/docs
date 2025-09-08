@@ -1,25 +1,30 @@
 ---
 title: "Overview"
-description: "Davia is a user-generated app hub where anyone can create, share and use apps made by others."
+description: "Davia is a workspace for creating interactive documents — pages that mix text, data, and AI-generated components."
 icon: "book-open-text"
 ---
 
 import { ChatIcon } from "/snippets/ChatIcon.jsx";
 
-## Davia apps are single-page applications
+## Davia pages are “living documents”
 
-They follow a unique architecture combining static editable content with interactive components.
-Each Davia app is a complete, standalone application that combines content, functionality, and interactivity into one unified page.
+They follow a unique architecture combining editable content with interactive components.
+Each page is self-contained: it holds your content, your interactive components, and your data. Think of it as **a document you can read, edit, and interact with**.
 
-<Card className="text-center" img="images/single-page-app-light.png">
-  Single App Page Example
+<Card
+  className="text-center"
+  img="images/single-page-app-light.png"
+  title="Interactive Document Example"
+>
+  In this _Weekly Planner_, the title and the _how to use_ sections are editable
+  content. The planner in the center is an interactive component.
 </Card>
 
 <br />
 
-## A single hub for using, creating and sharing personal apps
+## A single hub for creating, using, and sharing interactive docs
 
-### All your apps in one workspace
+### All your documents in one workspace
 
 <Columns cols={2}>
   <Frame>
@@ -31,15 +36,15 @@ Each Davia app is a complete, standalone application that combines content, func
   </Frame>
   <Card title="On the left side of the screen your workspace">
     <br />
-    Should you have an app in it or only notes, each page is accessible in the tree
-    on the left side of your screen. <br />
+    Whether you have a page with multiple components or just notes, each on of them
+    is accessible in the tree on the left side of your screen. <br />
     <br /> Your can create new pages, insert subpages in a current one or rename
     it. All in all, your **workspace behaves like a filesystem**.
   </Card>
 </Columns>
 
-All your pages are aggregated in your **workspace** which serves as your **personal app hub**.
-Bear in mind that once you import an app to your workspace, it becomes your personal copy. Any data stored is specific to your usage and remains private to you.
+All your pages are aggregated in your **workspace** which serves as your **personal document hub**.
+Bear in mind that once you import an interactive document to your workspace, it becomes your personal copy. Any data stored is specific to your usage and **remains private to you**.
 
 <Card
   icon="square-dashed-mouse-pointer"
@@ -47,18 +52,19 @@ Bear in mind that once you import an app to your workspace, it becomes your pers
   href="import-an-app"
   arrow="true"
 >
-  Davia makes it easy to import apps from the app hub. Click here to learn more.
+  Davia makes it easy to import interactive pages from the public doc hub. Click
+  here to learn more.
 </Card>
 
-### Create, edit apps and navigate your workspace using the agent
+### Create, edit documents and navigate your workspace using the agent
 
-Davia's assistant can create or edit your apps through natual language.
+Davia's assistant can create or edit your pages through natural language.
 Simply describe what you want, and it will build it for you.
 Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> icon.
 
 <Columns cols={2}>
   <Card title="This chat is your working partner. Here's what it can do:">
-    <br /> • **Content Creation & Editing** - Create and edit pages/apps
+    <br /> • **Content Creation & Editing** - Create and edit pages/components
     <br /> • **File Management** - Read, create, delete, and organize workspace files
     <br /> • **Data Handling** - Store, update, and process user data and
     interactions
@@ -70,7 +76,7 @@ Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> ic
   </Frame>
 </Columns>
 
-### Share your apps - Become a creator
+### Open Source your interactive documents - Become a creator
 
 <Columns cols={(2, 2)}>
   <Card
@@ -79,8 +85,7 @@ Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> ic
     href="creators/become-a-creator"
     arrow="true"
   >
-    Follow the steps to get verified, publish your first app and become a
-    creator.
+    Follow the steps to get verified and become a creator.
   </Card>
   <Card
     title="Start Earning"
@@ -88,7 +93,8 @@ Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> ic
     href="creators/start-earning"
     arrow="true"
   >
-    Monetize your apps' usage. Click here for our monetizing policy.
+    Monetize the usage of your publised docs. Click here for our monetizing
+    policy.
   </Card>
   <Card
     title="Publish in seconds"
@@ -96,7 +102,7 @@ Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> ic
     href="creators/publishing"
     arrow="true"
   >
-    Once your app is ready, publish it on the app hub and start sharing.
+    Once your document is ready, publish it on the public doc hub.
   </Card>
   <Card
     title="Share on our socials"
