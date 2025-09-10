@@ -30,7 +30,7 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["overview", "import-a-doc"]
+        "pages": ["overview", "import-a-doc", "publish"]
       },
       {
         "group": "Creators",
