@@ -27,22 +27,22 @@ logic, and data flows—without fixed blocks or rigid templates.
 
 ### All your documents in one workspace
 
-<Columns cols={2}>
-  <Frame>
+<Card>
+  <Columns cols={2}>
     <img
       src="images/workspace-filesystem.png"
       alt="Workspace"
       className="rounded-lg"
     ></img>
-  </Frame>
-  <Card title="On the left side of the screen your workspace">
-    <br />
-    Whether you have a page with multiple components or just notes, each one of them
-    is accessible in the tree on the left side of your screen. <br />
-    <br /> Your can create new pages, insert subpages in a current one or rename
-    it. All in all, your **workspace behaves like a filesystem**.
-  </Card>
-</Columns>
+    <Card title="On the left side of the screen your workspace">
+      <br />
+      Whether you have a page with multiple components or just notes, each one of
+      them is accessible in the tree on the left side of your screen. <br />
+      <br /> Your can create new pages, insert subpages in a current one or
+      rename it. All in all, your **workspace behaves like a filesystem**.
+    </Card>
+  </Columns>
+</Card>
 
 All your pages are aggregated in your **workspace** which serves as your **personal document hub**.
 Bear in mind that once you import an interactive document to your workspace, it becomes your personal copy. Any data stored is specific to your usage and **remains private to you**.
@@ -63,31 +63,26 @@ Davia's assistant can create or edit your pages through natural language.
 Simply describe what you want, and it will build it for you.
 Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> icon on the upper right.
 
-<Columns cols={2}>
-  <Card title="This chat is your working partner. Here's what it can do:">
-    <br /> • **Content Creation & Editing** - Create and edit pages/components
-    <br /> • **File Management** - Read, create, delete, and organize workspace files
-    <br /> • **Data Handling** - Store, update, and process user data and
-    interactions
-    <br /> • **Search & Web Integration** - Find workspace content and research topics
-    online
-  </Card>
-  <Frame>
+<Card horizontal>
+  <Columns cols={2}>
+    <Card title="This chat is your working partner. Here's what it can do:">
+      <br /> • **Content Creation & Editing** - Create and edit pages/components
+      <br /> • **File Management** - Read, create, delete, and organize workspace
+      files
+      <br /> • **Data Handling** - Store, update, and process user data and
+      interactions
+      <br /> • **Search & Web Integration** - Find workspace content and research
+      topics online
+    </Card>
     <img src="images/left-chat.png" className="rounded-lg"></img>
-  </Frame>
-</Columns>
+  </Columns>
+</Card>
 
 ### Publish your page as a live site
 
 Publish any interactive document as a Davia site with its own URL.
 
-<Card
-  title="One-Click Publishing"
-  icon="share"
-  horizontal
-  href="publish"
-  arrow="true"
->
+<Card icon="share" horizontal href="publish" arrow="true">
   Learn how to publish a page as a live site.
 </Card>
 

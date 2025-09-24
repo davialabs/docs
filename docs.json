@@ -33,6 +33,10 @@
         "pages": ["overview", "import-a-doc", "publish"]
       },
       {
+        "group": "Core",
+        "pages": ["core/data"]
+      },
+      {
         "group": "Creators",
         "pages": [
           "creators/become-a-creator",
