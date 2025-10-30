@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Davia",
-  "description": "Davia is a user-generated app hub where anyone can create, share and use apps made by others",
+  "description": "Davia is the AI workspace that captures your team's updates and keeps your knowledge accurate and up-to-date.",
   "colors": {
     "primary": "#29bbca",
     "light": "#76d9e3",
@@ -30,36 +30,20 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["overview", "import-a-doc", "publish"]
+        "pages": ["what-is-davia"]
       },
       {
         "group": "Core",
-        "pages": ["core/data"]
+        "pages": ["core/overview", "core/data", "core/publish"]
       },
       {
         "group": "Creators",
+        "hidden": true,
         "pages": [
           "creators/publishing-as-template",
           "creators/become-a-creator",
           "creators/start-earning",
           "creators/open-source-community"
-        ]
-      },
-      {
-        "group": "Technical Specification",
-        "hidden": true,
-        "pages": [
-          {
-            "group": "Code Architecture",
-            "icon": "file-code-2",
-            "pages": [
-              "code-architecture/principles",
-              "code-architecture/app-structure",
-              "code-architecture/content-guidelines",
-              "code-architecture/available-components",
-              "code-architecture/app-development-flow"
-            ]
-          }
         ]
       }
     ],
@@ -77,7 +61,7 @@
         },
         {
           "anchor": "Discord",
-          "href": "https://discord.gg/BxaFgcU9",
+          "href": "https://discord.gg/A79mEzP8me",
           "icon": "discord"
         }
       ]
@@ -91,17 +75,13 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Doc Hub",
-      "href": "https://davia.ai/templates"
+      "label": "Sign in",
+      "href": "https://davia.ai/login"
     },
     "links": [
       {
         "label": "Support",
         "href": "mailto:contact@davia.ai"
-      },
-      {
-        "label": "Sign in",
-        "href": "https://davia.ai/login"
       }
     ]
   },
