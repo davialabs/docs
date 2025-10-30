@@ -30,16 +30,11 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["overview", "import-a-doc", "publish"]
+        "pages": ["what-is-davia"]
       },
       {
         "group": "Core",
-        "pages": [
-          "core/overview",
-          "core/data",
-          "core/import-a-doc",
-          "core/publish"
-        ]
+        "pages": ["core/overview", "core/data", "core/publish"]
       },
       {
         "group": "Creators",
