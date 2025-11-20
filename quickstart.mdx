@@ -24,12 +24,6 @@ Before installing the Davia CLI, make sure you have Node.js and npm installed. Y
   <Step title="Initialize Davia with your coding agent">
     Inside your project, initialize Davia and tell it which AI coding agent you’re using:
 
-    ```bash
-    davia init --agent=[name of your coding agent]
-    ```
-
-    Replace <code>[name of your coding agent]</code> with something like:
-
     <CodeGroup>
     ```bash Cursor
     davia init --agent=cursor
@@ -45,7 +39,7 @@ Before installing the Davia CLI, make sure you have Node.js and npm installed. Y
 
     </CodeGroup>
 
-    This links your project’s Davia workspace to the agent that will generate your documentation.
+    If you don't want to link your IDE's agent, simply run <code>davia init</code>.
 
   </Step>
 
