@@ -22,8 +22,8 @@
   },
   "background": {
     "image": {
-      "light": "images/backgrounds/background-light.png",
-      "dark": "images/backgrounds/background-dark.png"
+      "light": "https://storage.googleapis.com/davia-public-assets/documentation/backgrounds/background-light.png",
+      "dark": "https://storage.googleapis.com/davia-public-assets/documentation/backgrounds/background-dark.png"
     }
   },
   "navigation": {
@@ -34,8 +34,9 @@
         "icon": "rocket"
       },
       {
-        "group": "Core",
-        "pages": ["core/overview", "core/data", "core/publish"]
+        "group": "Concepts",
+        "pages": ["core-concepts/overview", "core-concepts/data"],
+        "icon": "layers-2"
       },
       {
         "group": "Creators",
