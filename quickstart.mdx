@@ -1,0 +1,95 @@
+---
+title: "Quickstart"
+description: "Follow these simple steps to generate your first local wiki with Davia."
+---
+
+## Prerequisites
+
+Before installing the Davia CLI, make sure you have Node.js and npm installed. You can install them from the official [Node.js downloads page](https://nodejs.org/en/download).
+
+<Steps>
+  <Step title="Install Davia CLI">
+    Install the Davia CLI globally so you can run Davia commands from any project:
+
+    ```bash
+    npm i -g davia
+    ```
+
+    You can run this command from anywhere on your machine.
+
+  </Step>
+
+  <Step title="Initialize Davia with your coding agent">
+    Inside your project, initialize Davia and tell it which AI coding agent you’re using:
+
+    ```bash
+    davia init --agent=[name of your coding agent]
+    ```
+
+    Replace <code>[name of your coding agent]</code> with something like:
+
+    <CodeGroup>
+    ```bash Cursor
+    davia init --agent=cursor
+    ```
+
+    ```bash Github Copilot
+    davia init --agent=github-copilot
+    ```
+
+    ```bash Windsurf
+    davia init --agent=windsurf
+    ```
+
+    </CodeGroup>
+
+    This links your project’s Davia workspace to the agent that will generate your documentation.
+
+  </Step>
+
+  <Step title="Generate documentation with your AI agent">
+    Open your AI coding agent in this repository and ask it to document your codebase using Davia.
+
+    For example, you might say:
+
+    > “Generate an interactive documentation for this project, including visualizations and editable whiteboards.”
+
+    Your agent will use Davia’s paradigm to create interactive documents (diagrams, flows, and editable spaces) directly from your code and project structure.
+
+  </Step>
+
+  <Step title="View your documentation locally">
+    Once your agent has generated the documentation, open the Davia workspace to visualize the generated wiki:
+
+    ```bash
+    davia open
+    ```
+
+    This will open the workspace in your browser.
+    If the page doesn’t load immediately, simply refresh your browser tab and the doc should appear.
+
+  </Step>
+
+  <Step title="Sync your workspace to the cloud">
+    When you’re happy with the local wiki, push it to the cloud so you can collaborate with your team in real time:
+
+    ```bash
+    davia push
+    ```
+
+    This command will:
+
+    - Ask you to log in if you haven’t already (via a browser window)
+    - Create a new workspace for your project
+    - Upload your generated documentation
+    - Open the cloud workspace in your browser
+
+  </Step>
+</Steps>
+
+<Note>
+  <strong>Not yet supported:</strong> updating an existing cloud workspace
+  you’ve already pushed. <br />
+  For now, each <code>davia push</code> creates a new workspace. Support for updating
+  an existing workspace is coming soon.
+</Note>
