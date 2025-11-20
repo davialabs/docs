@@ -22,19 +22,21 @@
   },
   "background": {
     "image": {
-      "light": "images/backgrounds/background-light.png",
-      "dark": "images/backgrounds/background-dark.png"
+      "light": "https://storage.googleapis.com/davia-public-assets/documentation/backgrounds/background-light.png",
+      "dark": "https://storage.googleapis.com/davia-public-assets/documentation/backgrounds/background-dark.png"
     }
   },
   "navigation": {
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["what-is-davia"]
+        "pages": ["quickstart", "what-is-davia"],
+        "icon": "rocket"
       },
       {
-        "group": "Core",
-        "pages": ["core/overview", "core/data", "core/publish"]
+        "group": "Concepts",
+        "pages": ["core-concepts/overview", "core-concepts/data"],
+        "icon": "layers-2"
       },
       {
         "group": "Creators",
@@ -55,11 +57,6 @@
           "icon": "house"
         },
         {
-          "anchor": "Community",
-          "href": "https://www.reddit.com/r/davia_ai/",
-          "icon": "reddit"
-        },
-        {
           "anchor": "Discord",
           "href": "https://discord.gg/A79mEzP8me",
           "icon": "discord"
@@ -75,13 +72,14 @@
   "navbar": {
     "primary": {
       "type": "button",
-      "label": "Sign in",
-      "href": "https://davia.ai/login"
+      "label": "Join our Discord",
+      "href": "https://discord.gg/A79mEzP8me"
     },
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:contact@davia.ai"
+        "label": "Github",
+        "href": "https://github.com/davialabs/davia",
+        "icon": "github"
       }
     ]
   },
