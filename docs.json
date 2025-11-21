@@ -35,8 +35,18 @@
       },
       {
         "group": "Concepts",
-        "pages": ["core-concepts/overview", "core-concepts/data"],
+        "pages": [
+          "core-concepts/overview",
+          "core-concepts/whiteboards",
+          "core-concepts/project-structure",
+          "core-concepts/data"
+        ],
         "icon": "layers-2"
+      },
+      {
+        "group": "Reference",
+        "pages": ["cli-commands"],
+        "icon": "book"
       },
       {
         "group": "Creators",

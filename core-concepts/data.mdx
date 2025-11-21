@@ -1,6 +1,6 @@
 ---
 title: "Data in Davia"
-description: "Understand Davia's global, persistent data — how pages connect in your workspace and what happens when you publish a live site."
+description: "Understand Davia's global, persistent data and how pages connect in your workspace."
 ---
 
 ## Your workspace has a global data layer
@@ -51,28 +51,6 @@ Add an **Admin Panel** elsewhere to moderate or reset the same data
 
 All of these pages stay in sync because they are connected to the **same persistent data** in your workspace.
 
-## Publishing a live site: how data behaves
-
-When you publish a page as a **live Davia site** (not as a template), the data that page uses is published with it.
-
-What that means:
-
-1. **Visitors write to live data**: Any interaction on your live site — submitting a form, clicking Like, adding a vote — updates the published database.
-2. **Everything connected stays connected**: Other components or pages **in your workspace** that point to that same database will reflect those changes.
-3. **You can monitor from your workspace**: Build a dashboard in your workspace that tracks your live site in real time. For example, publish an **interactive survey** and keep a **live results dashboard** in your workspace showing responses as they come in.
-
-<Warning>
-  Be careful when changing data fields after publishing. Altering or removing
-  fields can break connected components or make older data incompatible. If you
-  need to evolve your schema, consider versioning your database or adding new
-  fields instead of replacing existing ones.
-</Warning>
-
-<Card icon="share" horizontal href="../publish" arrow="true">
-  Learn about publishing a page as a live site.
-</Card>
-
 ## Good to know
 
 - **Privacy in your workspace**: Data in your workspace is your personal copy and stays private to you.
-- **Templates are different**: When you publish a **template**, others import a personal copy of your interactice document along with its example data into their workspaces.

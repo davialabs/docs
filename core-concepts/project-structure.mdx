@@ -1,0 +1,62 @@
+---
+title: "Project Structure"
+description: "Understanding how Davia organizes your project and the .davia folder structure."
+---
+
+When you run `davia init`, Davia creates a `.davia` folder in the root of your project.
+
+## Initialization
+
+Running `davia init` will:
+
+- Create a `.davia` folder in your project root
+- Add `.davia` to your `.gitignore` file
+
+If you specify an agent with `--agent=cursor` (or `github-copilot`, `windsurf`), it will:
+
+- Add the agent rule file (e.g., `.cursor/rules` for Cursor)
+- Add the agent rule directory to your `.gitignore`
+
+## Why agent rules?
+
+The agent rule file tells your coding agent how to interact with Davia and document your codebase. Each time you want to document your project, your coding agent will read this rule and write documentation files in `.davia`, maintaining context from previous documentation sessions.
+
+The `.davia` folder is gitignored so that generated documentation remains local and your coding agent can build upon previous documentation sessions.
+
+## .davia Folder Structure
+
+```
+.davia/
+├── agents.md          # Do not modify - contains the prompt for your coding agent
+└── assets/
+    ├── *.html         # HTML documentation pages
+    ├── data/          # JSON data files
+    └── mermaids/      # .mmd files (transitional state, converted to .json in data/)
+```
+
+The HTML pages are stored directly in `assets/`. Your coding agent will generate `.mmd` files in `mermaids/`, which are then converted to `.json` files in `data/`.
+
+<Warning>
+  **Do not modify `agents.md`.** Do not let your coding agent modify it. It
+  contains the prompt that explains to your coding agent how to interact with
+  the `.davia` folder structure.
+</Warning>
+
+## File System to Workspace Mapping
+
+The structure in your `.davia` folder directly corresponds to what you see in the Davia workspace interface. The HTML files in `.davia/assets/` become the documentation pages shown in the workspace navigation:
+
+<Columns cols={2}>
+  <img
+    src="https://storage.googleapis.com/davia-public-assets/landing-gif/davia-structre.png"
+    alt=".davia folder structure in file explorer"
+    className="rounded-lg"
+  ></img>
+  <img
+    src="https://storage.googleapis.com/davia-public-assets/landing-gif/structure-frontend.png"
+    alt="Davia workspace interface showing documentation"
+    className="rounded-lg"
+  ></img>
+</Columns>
+
+When you open Davia with `davia open`, the web interface reads from these files and displays them as interactive documentation pages. The navigation menu items (like "Autocomplete API Flow") correspond to the HTML files in your `assets/` folder (like `autocomplete-api-flow.html`).

@@ -1,14 +1,14 @@
 ---
 title: "Overview"
-description: "Davia is a workspace composed of interactive documents — pages that mix text, data, and AI-generated components."
+description: "Davia is a workspace composed of interactive documents. Pages that mix text, data, whiteboards, and AI-generated components."
 ---
 
 import { ChatIcon } from "/snippets/ChatIcon.jsx";
 
-## Davia pages are “living documents”
+## Davia pages are "living documents"
 
 They follow a unique architecture combining editable content with interactive components.
-Each page is self-contained: it holds your content, your interactive components, and your data. Think of it as **a document you can read, edit, and interact with**.
+Each page is self-contained: it holds your content, your interactive components, whiteboards, and your data. Think of it as **a document you can read, edit, and interact with**.
 
 <video
   autoPlay
@@ -19,8 +19,7 @@ Each page is self-contained: it holds your content, your interactive components,
   src="https://storage.googleapis.com/davia-public-assets/documentation/Showcase_2.mp4"
 ></video>
 
-This is a new authoring paradigm: code is generated and compiled on the fly as you work. Describe what you need and the page can become anything—custom UI,
-logic, and data flows—without fixed blocks or rigid templates.
+This is a new authoring paradigm: code is generated and compiled on the fly as you work. Describe what you need and the page can become anything, from custom UI to logic and data flows, without fixed blocks or rigid templates.
 
 ## A single hub for creating, using, and sharing interactive docs
 
@@ -47,24 +46,16 @@ All your pages are aggregated in your **workspace** which serves as your **inter
 
 ### Create, edit documents and navigate your workspace using the agent
 
-Davia's assistant can create or edit your pages through natural language.
-Simply describe what you want, and it will build it for you.
-Access in right sidepane with command ⌘K or by clicking on the <ChatIcon /> icon on the upper right.
+<Info>
+  **In the cloud:** Davia's assistant can create or edit your pages through
+  natural language. Access in right sidepane with command ⌘K or by clicking on
+  the <ChatIcon /> icon on the upper right.
+</Info>
 
-<Card horizontal>
-  <Columns cols={2}>
-    <Card title="This chat is your working partner. Here's what it can do:">
-      <br /> • **Content Creation & Editing** - Create and edit pages/components
-      <br /> • **File Management** - Read, create, delete, and organize workspace
-      files
-      <br /> • **Data Handling** - Store, update, and process user data and
-      interactions
-      <br /> • **Search & Web Integration** - Find workspace content and research
-      topics online
-    </Card>
-    <img src="../images/left-chat.png" className="rounded-lg"></img>
-  </Columns>
-</Card>
+<Info>
+  **Locally:** Use your coding agent to create and edit pages. Simply describe
+  what you want, and it will build it for you.
+</Info>
 
 ### Publish your page as a live site
 
