@@ -3,11 +3,36 @@ title: "CLI Commands"
 description: "Reference for all Davia CLI commands."
 ---
 
-## Commands
+<ParamField header="davia init" type="command">
+  Initialize Davia in current directory. Creates `.davia` folder and project configuration.
 
-| Command      | Purpose                                                                                                                  | Options                                                                                                                                                                  |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `davia init` | Initialize Davia in current directory. Creates `.davia` folder and project configuration.                                | • `--agent` - Specify AI coding agent (cursor, github-copilot, windsurf)                                                                                                 |
-| `davia open` | Start web server and open browser. Finds available port if specified port is in use.                                     | • `--port` - Specify port number (default: 3005)                                                                                                                         |
-| `davia push` | Upload documentation to remote workspace. Authenticates, links workspace, uploads files.                                 | None                                                                                                                                                                     |
-| `davia docs` | Generate documentation using AI agent. Checks API key, runs agent, starts web server. Outputs files to `.davia/assets/`. | • `--overwrite` - Overwrite existing documentation files<br/>• `--no-browser` - Don't open browser after generation<br/>• `--port` - Specify port number (default: 3005) |
+| Option           | Description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `--agent=<name>` | Specify AI coding agent (cursor, github-copilot, windsurf) |
+
+</ParamField>
+
+<ParamField header="davia open" type="command">
+  Start web server and open browser. Finds available port if specified port is in use.
+
+| Option            | Description                         |
+| ----------------- | ----------------------------------- |
+| `--port=<number>` | Specify port number (default: 3005) |
+
+</ParamField>
+
+<ParamField header="davia push" type="command">
+  Upload documentation to remote workspace. Authenticates, links workspace,
+  uploads files.
+</ParamField>
+
+<ParamField header="davia docs" type="command">
+  Generate documentation using AI agent. Checks API key, runs agent, starts web server. Outputs files to `.davia/assets/`.
+
+| Option            | Description                            |
+| ----------------- | -------------------------------------- |
+| `--overwrite`     | Overwrite existing documentation files |
+| `--no-browser`    | Don't open browser after generation    |
+| `--port=<number>` | Specify port number (default: 3005)    |
+
+</ParamField>

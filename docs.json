@@ -30,7 +30,7 @@
     "groups": [
       {
         "group": "Getting Started",
-        "pages": ["quickstart", "what-is-davia"],
+        "pages": ["quickstart", "what-is-davia", "practical-examples"],
         "icon": "rocket"
       },
       {
