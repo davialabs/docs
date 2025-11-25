@@ -1,0 +1,52 @@
+---
+title: "Practical Examples"
+description: "Here are a few example prompts you can use with your AI coding agent after running `davia init` in your project."
+---
+
+## 1. Broad wiki for the whole project
+
+If you initialized Davia with your coding agent (for example `davia init --agent=cursor`), the agent already knows it should use Davia to generate the wiki.  
+In that case, even a very broad prompt like this will work:
+
+```text
+Document this project.
+```
+
+Your agent will use its tooling to scan the project, generate an initial wiki, and create interactive docs and whiteboards.
+
+<Note>
+  If you did not run <code>davia init --agent=&lt;your-agent&gt;</code>, make
+  sure your prompt explicitly mentions Davia and that you want a local wiki. For
+  example: `Use Davia to generate a local wiki that documents this project.`
+</Note>
+
+<Frame hint="Ask your agent for a broad wiki over the whole project">
+  <video
+    controls
+    className="w-full rounded-xl"
+    src="https://storage.googleapis.com/davia-public-assets/documentation/example_prompt_1.mp4"
+  ></video>
+</Frame>
+
+## 2. Focused wiki for a specific part (e.g. schemas)
+
+You can also guide your agent to document only a specific area of the codebase and structure the output in a particular way.  
+For example, to document only your schemas/classes and organize them in a table:
+
+```text
+Using Davia, generate a wiki page that documents only the schemas/classes
+in this project. For each schema, include a row in a table with:
+- the schema name
+- a short description
+- its main fields and relationships.
+```
+
+This kind of prompt narrows the scope and gives your agent a clear output structure, resulting in a more targeted, immediately useful wiki page.
+
+<Frame hint="Ask your agent for a focused wiki on schemas, structured as a table">
+  <video
+    controls
+    className="w-full rounded-xl"
+    src="https://storage.googleapis.com/davia-public-assets/documentation/example_prompt_2.mp4"
+  ></video>
+</Frame>
