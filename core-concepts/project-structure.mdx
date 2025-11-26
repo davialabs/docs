@@ -28,11 +28,24 @@ The `.davia` folder is gitignored so that generated documentation remains local 
 ├── AGENTS.md          # Do not modify - contains the prompt for your coding agent
 └── assets/
     ├── *.html         # HTML documentation pages
-    ├── data/          # JSON data files
-    └── mermaids/      # .mmd files (transitional state, converted to .json in data/)
+    ├── components/    # MDX component files (.mdx)
+    ├── data/          # JSON data files + converted whiteboard diagrams
+    └── mermaids/      # .mmd files (transitional, auto-converted to .json in data/)
 ```
 
-The HTML pages are stored directly in `assets/`. Your coding agent will generate `.mmd` files in `mermaids/`, which are then converted to `.json` files in `data/`.
+### What goes where
+
+| Folder | Purpose | File type |
+|--------|---------|-----------|
+| `assets/` (root) | Documentation pages | `.html` |
+| `components/` | Interactive React components | `.mdx` |
+| `data/` | Persistent data + whiteboard diagrams | `.json` |
+| `mermaids/` | Mermaid source files (auto-converted) | `.mmd` |
+
+<Info>
+  The agent creates `.mmd` files in `mermaids/` — these are automatically converted to `.json` in `data/`.
+  HTML pages always reference the `.json` version, never the `.mmd` directly.
+</Info>
 
 <Warning>
   **Do not modify `agents.md`.** Do not let your coding agent modify it. It

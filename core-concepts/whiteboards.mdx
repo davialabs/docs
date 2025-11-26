@@ -28,3 +28,25 @@ This means you can refine your documentation and diagrams as you work, without s
   visual flowcharts and diagrams that you can edit directly without leaving your
   page.
 </Info>
+
+### How the conversion works
+
+1. The agent creates a `.mmd` file in `.davia/assets/mermaids/`
+2. Davia automatically converts it to a `.json` file in `.davia/assets/data/`
+3. The HTML page embeds the diagram using: `<excalidraw data-path="data/diagram-name.json"></excalidraw>`
+
+### Supported Mermaid diagram types
+
+Your agent can generate these diagram types:
+
+- **Flowcharts** (`flowchart TD` or `graph LR`) — processes, decision trees, system flows
+- **Sequence diagrams** — API calls, request/response flows, user interactions
+- **Class diagrams** — data models, schemas, relationships
+- **State diagrams** — status transitions, lifecycle flows
+- **Entity-relationship diagrams** — database schemas
+
+<Tip>
+  When prompting your agent, ask for a "visual diagram" or "flowchart" and it
+  will create a mermaid file that becomes an editable whiteboard in your
+  documentation.
+</Tip>
