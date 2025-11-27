@@ -14,3 +14,75 @@ Your workspace has a set of shared, named **databases** you can plug components 
 </Info>
 
 When you ask Davia to generate a new component, it often also scaffolds the data it needs and automatically connects the component to that database. This means your component is usable right away — no manual setup or wiring required.
+
+## Where data lives
+
+All data files are stored in `.davia/assets/data/` as JSON files. They can be organized in nested folders.
+
+```
+.davia/assets/
+├── data/
+│   ├── users.json
+│   ├── config.json
+│   └── analytics/
+│       └── sales.json
+```
+
+## JSON structure
+
+Data files must be **valid JSON**. For most use cases, **top-level arrays** are preferred — similar to database tables.
+
+```json
+[
+  { "id": 1, "name": "Alice", "role": "Admin" },
+  { "id": 2, "name": "Bob", "role": "User" }
+]
+```
+
+<Warning>
+  Avoid deeply nested structures. Keep properties flat and primitive whenever
+  possible — this makes data easier to display and edit.
+</Warning>
+
+## Two ways to display data
+
+### 1. Database Views (for tabular data)
+
+Embed JSON directly in an HTML page as an interactive table:
+
+```html
+<database-view data-path="data/users.json"></database-view>
+```
+
+<Info>
+  Database views only work when the JSON root is a **top-level array**. Each
+  array item becomes a row in the table.
+</Info>
+
+### 2. MDX Components (for custom UIs)
+
+For charts, forms, or custom layouts, use an MDX component that imports and binds to the data:
+
+```mdx
+import users from "~/data/users.json";
+
+export function UserList() {
+  const { data, updateData } = useData(users);
+  return (
+    <ul>
+      {data.map(user => <li key={user.id}>{user.name}</li>)}
+    </ul>
+  );
+
+
+}
+```
+
+## Data is shared, not scoped
+
+The same JSON file can be imported by **multiple components across different pages**. When one component updates the data, all components using that file see the change.
+
+<Tip>
+  To share data between pages, simply import the same JSON file path in each
+  component. No extra wiring required.
+</Tip>

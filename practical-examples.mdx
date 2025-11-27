@@ -50,3 +50,47 @@ This kind of prompt narrows the scope and gives your agent a clear output struct
     src="https://storage.googleapis.com/davia-public-assets/documentation/example_prompt_2.mp4"
   ></video>
 </Frame>
+
+## 3. API spec wiki with custom components
+
+You can also ask your agent to use **custom UI components** when generating documentation.  
+For example, to turn an API spec into a browsable gallery of endpoints using your own card and modal components:
+
+```text
+I want to create a wiki for my API spec using a custom component. 
+The UI should display each API endpoint as a card, grouped by category. 
+Each card should show a short title and a concise description. 
+When a user clicks a card, it should open a modal or dialog that displays the endpoint’s full details. 
+The design should be clean, minimal, and readable.
+```
+
+Behind the scenes, Davia’s **custom bundler** lets your agent wire these prompts into real components, so your API documentation becomes an interactive interface instead of a static list.
+
+<Frame caption="Use custom components to render an API spec as interactive cards with details in a modal">
+  <video
+    controls
+    className="w-full rounded-xl"
+    src="https://storage.googleapis.com/davia-public-assets/documentation/example-claude-code-prompt-1.mp4"
+  ></video>
+</Frame>
+
+## 4. Authentication flow architecture diagram
+
+You can also use Davia to generate **clean architecture diagrams** for critical flows like authentication:
+
+```text
+I want to document this project's authentication flow and I need a clean architecture diagram that visually explains it. 
+The diagram should show the interactions between: Client → API Server → Auth Service → Database, 
+including steps like credential submission, verification, token creation, and token validation. 
+The final output should be visually clear, standard, and easy to understand in one glance.
+```
+
+Your agent will produce a visual, end‑to‑end diagram of the auth flow (client, API server, auth service, and database), which you can refine directly in Davia’s interactive canvas.
+
+<Frame caption="Ask your agent for a clear, end-to-end authentication flow diagram">
+  <video
+    controls
+    className="w-full rounded-xl"
+    src="https://storage.googleapis.com/davia-public-assets/documentation/example-claude-code-prompt-2.mp4"
+  ></video>
+</Frame>
