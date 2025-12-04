@@ -45,7 +45,7 @@
       },
       {
         "group": "Reference",
-        "pages": ["cli-commands"],
+        "pages": ["reference/cli-commands", "reference/supported-agents"],
         "icon": "book"
       },
       {
